@@ -5,6 +5,8 @@ import com.cookiegames.smartcookie.database.Bookmark
 import com.cookiegames.smartcookie.database.asFolder
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
+import org.jsoup.nodes.Node
+import org.jsoup.select.NodeFilter
 import java.io.InputStream
 import javax.inject.Inject
 
@@ -27,24 +29,53 @@ class NetscapeBookmarkFormatImporter @Inject constructor() : BookmarkImporter {
      * @return The [List] of [Bookmark.Entry] held by [Element] with the provided [folderName].
      */
     private fun Element.processFolder(folderName: String): List<Bookmark.Entry> {
-        return children()
-                .filter { it.isTag(ITEM_TAG) }
-                .flatMap {
-                    val immediateChild = it.child(0)
-                    when {
-                        immediateChild.isTag(FOLDER_TAG) ->
-                            immediateChild.nextElementSibling()
-                                    .processFolder(computeFolderName(folderName, immediateChild.text()))
-                        immediateChild.isTag(BOOKMARK_TAG) ->
-                            listOf(Bookmark.Entry(
-                                    url = immediateChild.attr(HREF),
-                                    title = immediateChild.text(),
-                                    position = 0,
-                                    folder = folderName.asFolder()
-                            ))
-                        else -> emptyList()
+        return (children() as ArrayList<Element>)
+            .filter { it.isTag(ITEM_TAG) }
+            .flatMap {
+                val immediateChild = it.child(0)
+                when {
+                    immediateChild.isTag(FOLDER_TAG) -> {
+                        if (immediateChild.nextElementSibling() != null) {
+                            immediateChild.nextElementSibling()!!
+                                .processFolder(computeFolderName(folderName, immediateChild.text()))
+                        } else {
+                            emptyList()
+                        }
+                    }
+                    immediateChild.isTag(BOOKMARK_TAG) -> {
+                        listOf(Bookmark.Entry(
+                            url = immediateChild.attr(HREF),
+                            title = immediateChild.text(),
+                            position = 0,
+                            folder = folderName.asFolder()
+                        ))
+                    }
+                    else -> {
+                        emptyList()
                     }
                 }
+            }
+
+
+
+//        return children()
+//                .filter { it.isTag(ITEM_TAG) }
+//                .flatMap {
+//                    val immediateChild = it.child(0)
+//                    when {
+//                        immediateChild.isTag(FOLDER_TAG) ->
+//                            immediateChild.nextElementSibling()
+//                                    .processFolder(computeFolderName(folderName, immediateChild.text()))
+//                        immediateChild.isTag(BOOKMARK_TAG) ->
+//                            listOf(Bookmark.Entry(
+//                                    url = immediateChild.attr(HREF),
+//                                    title = immediateChild.text(),
+//                                    position = 0,
+//                                    folder = folderName.asFolder()
+//                            ))
+//                        else -> emptyList()
+//                    }
+//                }
     }
 
     /**

@@ -412,12 +412,12 @@ class SmartCookieView(
 
             if (!isIncognito || DeviceCapabilities.FULL_INCOGNITO.isSupported) {
                 domStorageEnabled = true
-                setAppCacheEnabled(true)
+//                setAppCacheEnabled(true)
                 databaseEnabled = true
                 cacheMode = WebSettings.LOAD_DEFAULT
             } else {
                 domStorageEnabled = false
-                setAppCacheEnabled(false)
+//                setAppCacheEnabled(false)
                 databaseEnabled = false
                 cacheMode = WebSettings.LOAD_NO_CACHE
             }
@@ -430,12 +430,12 @@ class SmartCookieView(
             allowFileAccessFromFileURLs = false
             allowUniversalAccessFromFileURLs = false
 
-            getPathObservable("appcache")
-                .subscribeOn(databaseScheduler)
-                .observeOn(mainScheduler)
-                .subscribe { file ->
-                    setAppCachePath(file.path)
-                }
+//            getPathObservable("appcache")
+//                .subscribeOn(databaseScheduler)
+//                .observeOn(mainScheduler)
+//                .subscribe { file ->
+//                    setAppCachePath(file.path)
+//                }
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
                 getPathObservable("geolocation")
@@ -891,7 +891,7 @@ class SmartCookieView(
          */
         private var canTriggerLongPress = true
 
-        override fun onFling(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
+        override fun onFling(e1: MotionEvent?, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
             val power = (velocityY * 100 / maxFling).toInt()
             if (power < -10) {
                 uiController.hideActionBar()
@@ -900,6 +900,9 @@ class SmartCookieView(
             }
             return super.onFling(e1, e2, velocityX, velocityY)
         }
+
+
+
 
         override fun onLongPress(e: MotionEvent) {
             if (canTriggerLongPress) {
