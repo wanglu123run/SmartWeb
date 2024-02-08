@@ -26,22 +26,22 @@ inline fun Document.charset(charset: () -> String) {
 }
 
 inline fun Element.tag(tag: String, build: Element.() -> Unit): Element? {
-    val first = getElementsByTag(tag).first()
-    first?.also(build)
-    return first
+    var first = getElementsByTag(tag).first()
+//    first = first?.also(build)
+    return first?.also(build)
 }
 
 inline fun Element.clone(edit: Element.() -> Unit): Element {
     return clone().also(edit)
 }
 
-inline fun Element.id(string: String, build: Element.() -> Unit): Element? {
-    val elementById = getElementById(string)
-    elementById?.also(build)
-    return elementById
+inline fun Element.idMy(string: String, build: Element.() -> Unit): Element? {
+    var elementById = getElementById(string)
+//    elementById = elementById?.also(build)
+    return elementById?.also(build)
 }
 
-inline fun Element.id(string: String): Element? {
+inline fun Element.idMy(string: String): Element? {
     return getElementById(string)
 }
 

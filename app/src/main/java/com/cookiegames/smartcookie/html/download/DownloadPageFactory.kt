@@ -32,20 +32,23 @@ class DownloadPageFactory @Inject constructor(
             parse(listPageReader.provideHtml()) andBuild {
                 title { application.getString(R.string.action_downloads) }
                 body {
-                    val repeatableElement = id("repeated").removeElement()
-                    id("content") {
+                    val repeatableElement = idMy("repeated")?.removeElement()
+                    idMy("content") {
                         list.forEach {
-                            appendChild(repeatableElement.clone {
+                            val haha = repeatableElement?.clone {
                                 tag("a") { attr("href", createFileUrl(it.title)) }
-                                id("title") { text(createFileTitle(it)) }
-                                id("url") { text(it.url) }
-                            })
+                                idMy("title") { text(createFileTitle(it)) }
+                                idMy("url") { text(it.url) }
+                            }
+                            appendChild(haha)
                         }
                     }
                 }
             }
         }
-        .map { content -> Pair(createDownloadsPageFile(), content) }
+        .map { content ->
+            Pair(createDownloadsPageFile(), content)
+        }
         .doOnSuccess { (page, content) ->
             FileWriter(page, false).use { it.write(content) }
         }

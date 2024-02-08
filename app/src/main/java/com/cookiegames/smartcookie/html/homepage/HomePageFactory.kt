@@ -54,7 +54,7 @@ class HomePageFactory @Inject constructor(
                     if(userPreferences.imageUrlString != ""){ tag("body") { attr("style", "background: url('" + userPreferences.imageUrlString + "') no-repeat scroll;") } }
 
                     // Set search engine icon
-                    id("search_input") { attr("style", "background: url('" + iconUrl + "') no-repeat scroll 7px 7px;background-size: 22px 22px;") }
+                    idMy("search_input") { attr("style", "background: url('" + iconUrl + "') no-repeat scroll 7px 7px;background-size: 22px 22px;") }
 
                     // Fill params in scripts
                     tag("script") {
@@ -74,26 +74,26 @@ class HomePageFactory @Inject constructor(
                     }
 
                     if(userPreferences.homepageType == HomepageTypeChoice.FOCUSED){
-                        id("image_url").remove()
+                        idMy("image_url")?.remove()
                     }
 
                     // Shortcuts
                     if(userPreferences.showShortcuts){
                         val shortcuts = arrayListOf(userPreferences.link1, userPreferences.link2, userPreferences.link3, userPreferences.link4)
 
-                        id("edit_shortcuts"){ text(resources.getString(R.string.edit_shortcuts)) }
-                        id("apply"){ text(resources.getString(R.string.apply)) }
-                        id("link1click"){ attr("href", shortcuts[0])}
-                        id("link2click"){ attr("href", shortcuts[1])}
-                        id("link3click"){ attr("href", shortcuts[2])}
-                        id("link4click"){ attr("href", shortcuts[3])}
+                        idMy("edit_shortcuts"){ text(resources.getString(R.string.edit_shortcuts)) }
+                        idMy("apply"){ text(resources.getString(R.string.apply)) }
+                        idMy("link1click"){ attr("href", shortcuts[0])}
+                        idMy("link2click"){ attr("href", shortcuts[1])}
+                        idMy("link3click"){ attr("href", shortcuts[2])}
+                        idMy("link4click"){ attr("href", shortcuts[3])}
 
                         shortcuts.forEachIndexed { index, element ->
                             if(!URLUtil.isValidUrl(element)){
                                 val icon = createIconByName('?')
                                 val encoded = bitmapToBase64(icon)
 
-                                id("link" + (index + 1)){ attr("src",
+                                idMy("link" + (index + 1)){ attr("src",
                                         "data:image/png;base64,$encoded"
                                 )}
 
@@ -103,15 +103,15 @@ class HomePageFactory @Inject constructor(
                             val url = URI(element.replaceFirst("www.", ""))
                             val icon = createIconByName(url.host.first().toUpperCase())
                             val encoded = bitmapToBase64(icon)
-                            id("link" + (index + 1)){ attr("src", "https://${URI(element).host}/favicon.ico")}
-                            id("link" + (index + 1)){ attr("onerror", "this.src = 'data:image/png;base64,$encoded';")}
+                            idMy("link" + (index + 1)){ attr("src", "https://${URI(element).host}/favicon.ico")}
+                            idMy("link" + (index + 1)){ attr("onerror", "this.src = 'data:image/png;base64,$encoded';")}
 
                         }
 
-                        id("search_input"){ attr("placeholder", resources.getString(R.string.search_homepage))}
+                        idMy("search_input"){ attr("placeholder", resources.getString(R.string.search_homepage))}
                     }
                     else{
-                        id("shortcuts"){ attr("style", "display: none;")}
+                        idMy("shortcuts"){ attr("style", "display: none;")}
                     }
 
                 }

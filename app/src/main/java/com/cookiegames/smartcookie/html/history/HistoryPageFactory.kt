@@ -36,14 +36,14 @@ class HistoryPageFactory @Inject constructor(
             parse(listPageReader.provideHtml()) andBuild {
                 title { title }
                 body {
-                    val repeatedElement = id("repeated").removeElement()
-                    id("content") {
+                    val repeatedElement = idMy("repeated")?.removeElement()
+                    idMy("content") {
                         list.forEach {
-                            appendChild(repeatedElement.clone {
+                            appendChild(repeatedElement?.clone {
                                 tag("a") { attr("href", it.url) }
-                                id("title") { text(it.title) }
-                                id("url") { text(it.url) }
-                                id("date") { text(resources.getString(R.string.last_loaded) + " " + getDateTime(it.lastTimeVisited)) }
+                                idMy("title") { text(it.title) }
+                                idMy("url") { text(it.url) }
+                                idMy("date") { text(resources.getString(R.string.last_loaded) + " " + getDateTime(it.lastTimeVisited)) }
                             })
                         }
                     }

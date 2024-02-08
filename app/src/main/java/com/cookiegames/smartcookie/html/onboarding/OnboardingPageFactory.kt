@@ -41,11 +41,11 @@ class OnboardingPageFactory @Inject constructor(
                 title { title }
                 charset { UTF8 }
                 body{
-                    id("name"){ text(resources.getString(R.string.app_name)) }
-                    id("1"){ text(resources.getString(R.string.onboarding_one)) }
-                    id("2"){ text(resources.getString(R.string.onboarding_two)) }
-                    id("3"){ text(resources.getString(R.string.onboarding_three)) }
-                    id("getstarted"){ text(resources.getString(R.string.start))}
+                    idMy("name"){ text(resources.getString(R.string.app_name)) }
+                    idMy("1"){ text(resources.getString(R.string.onboarding_one)) }
+                    idMy("2"){ text(resources.getString(R.string.onboarding_two)) }
+                    idMy("3"){ text(resources.getString(R.string.onboarding_three)) }
+                    idMy("getstarted"){ text(resources.getString(R.string.start))}
                     //id("adblock"){ text(resources.getString(R.string.adblock_category)) }
                     //id("cookieblock"){ text(resources.getString(R.string.cookie_category)) }
                     //id("load"){ text(resources.getString(R.string.load_tabs)) }

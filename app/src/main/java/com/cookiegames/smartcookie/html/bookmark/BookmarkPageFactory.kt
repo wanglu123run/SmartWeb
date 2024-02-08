@@ -85,13 +85,13 @@ class BookmarkPageFactory @Inject constructor(
         return parse(bookmarkPageReader.provideHtml()) andBuild {
             title { title }
             body {
-                val repeatableElement = id("repeated").removeElement()
-                id("content") {
+                val repeatableElement = idMy("repeated")?.removeElement()
+                idMy("content") {
                     list.forEach {
-                        appendChild(repeatableElement.clone {
+                        appendChild(repeatableElement?.clone {
                             tag("a") { attr("href", it.url) }
                             tag("img") { attr("src", it.iconUrl) }
-                            id("title") { appendText(it.title) }
+                            idMy("title") { appendText(it.title) }
                         })
                     }
                 }

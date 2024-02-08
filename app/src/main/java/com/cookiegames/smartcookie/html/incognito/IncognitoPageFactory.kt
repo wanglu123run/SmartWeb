@@ -48,7 +48,7 @@ class IncognitoPageFactory @Inject constructor(
                     title { title }
                     charset { UTF8 }
                     body {
-                        id("search_input") { attr("style", "background: url('" + iconUrl + "') no-repeat scroll 7px 7px;background-size: 22px 22px;") }
+                        idMy("search_input") { attr("style", "background: url('" + iconUrl + "') no-repeat scroll 7px 7px;background-size: 22px 22px;") }
                         tag("script") {
                             html(
                                     html()
@@ -59,24 +59,24 @@ class IncognitoPageFactory @Inject constructor(
                             )
                         }
 
-                        id("title-pm"){text(resources.getString(R.string.private_title))}
-                        id("desc-pm"){text(resources.getString(R.string.private_desc))}
+                        idMy("title-pm"){text(resources.getString(R.string.private_title))}
+                        idMy("desc-pm"){text(resources.getString(R.string.private_desc))}
                         if(userPreferences.showShortcuts){
                             var shortcuts = arrayListOf(userPreferences.link1, userPreferences.link2, userPreferences.link3, userPreferences.link4)
 
-                            id("edit_shortcuts"){ text(resources.getString(R.string.edit_shortcuts)) }
-                            id("apply"){ text(resources.getString(R.string.apply)) }
-                            id("link1click"){ attr("href", shortcuts[0])}
-                            id("link2click"){ attr("href", shortcuts[1])}
-                            id("link3click"){ attr("href", shortcuts[2])}
-                            id("link4click"){ attr("href", shortcuts[3])}
+                            idMy("edit_shortcuts"){ text(resources.getString(R.string.edit_shortcuts)) }
+                            idMy("apply"){ text(resources.getString(R.string.apply)) }
+                            idMy("link1click"){ attr("href", shortcuts[0])}
+                            idMy("link2click"){ attr("href", shortcuts[1])}
+                            idMy("link3click"){ attr("href", shortcuts[2])}
+                            idMy("link4click"){ attr("href", shortcuts[3])}
 
                             shortcuts.forEachIndexed { index, element ->
                                 if(!URLUtil.isValidUrl(element)){
                                     val icon = createIconByName('?')
                                     val encoded = bitmapToBase64(icon)
 
-                                    id("link" + (index + 1)){ attr("src", "data:image/png;base64," + encoded)}
+                                    idMy("link" + (index + 1)){ attr("src", "data:image/png;base64," + encoded)}
 
                                     return@forEachIndexed
                                 }
@@ -84,13 +84,13 @@ class IncognitoPageFactory @Inject constructor(
                                 val url = URL(element.replaceFirst("www.", ""))
                                 val icon = createIconByName(url.getHost().first().toUpperCase())
                                 val encoded = bitmapToBase64(icon)
-                                id("link" + (index + 1)){ attr("src", element + "/favicon.ico")}
-                                id("link" + (index + 1)){ attr("onerror", "this.src = 'data:image/png;base64,$encoded';")}
+                                idMy("link" + (index + 1)){ attr("src", element + "/favicon.ico")}
+                                idMy("link" + (index + 1)){ attr("onerror", "this.src = 'data:image/png;base64,$encoded';")}
 
                             }
                         }
                         else{
-                            id("shortcuts"){ attr("style", "display: none;")}
+                            idMy("shortcuts"){ attr("style", "display: none;")}
                         }
 
                     }
