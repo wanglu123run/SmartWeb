@@ -26,6 +26,7 @@ import java.net.URL
 import javax.inject.Inject
 
 /**
+ * 隐私模式
  * A factory for the home page.
  */
 @Reusable

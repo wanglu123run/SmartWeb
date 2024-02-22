@@ -19,6 +19,7 @@ import java.io.FileWriter
 import javax.inject.Inject
 
 /**
+ * 暂时没发现有用
  * A factory for the home page.
  */
 @Reusable
