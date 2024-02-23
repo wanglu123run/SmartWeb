@@ -83,10 +83,10 @@ class Onboarding : AppIntro2(){
 
         addSlide(NavbarChoiceFragment.newInstance())
 
-        askForPermissions(
-                permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                slideNumber = 2,
-                required = false)
+//        askForPermissions(
+//                permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE),
+//                slideNumber = 2,
+//                required = false)
 
 
         setIndicatorColor(

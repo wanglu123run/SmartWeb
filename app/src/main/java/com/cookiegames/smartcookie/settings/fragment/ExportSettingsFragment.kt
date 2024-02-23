@@ -36,6 +36,9 @@ import com.cookiegames.smartcookie.utils.Preconditions.checkNonNull
 import com.cookiegames.smartcookie.utils.Utils
 import com.cookiegames.smartcookie.utils.Utils.close
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.hjq.permissions.OnPermissionCallback
+import com.hjq.permissions.Permission
+import com.hjq.permissions.XXPermissions
 import io.reactivex.Completable
 import io.reactivex.Scheduler
 import io.reactivex.Single
@@ -82,9 +85,16 @@ class ExportSettingsFragment : AbstractSettingsFragment() {
         super.onCreate(savedInstanceState)
         injector.inject(this)
 
-        PermissionsManager
-            .getInstance()
-            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS, null)
+//        PermissionsManager
+//            .getInstance()
+//            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS, null)
+
+        requestPermissions(success = {
+
+        }, fail = {
+
+        })
+
 
         clickablePreference(preference = SETTINGS_EXPORT, onClick = this::exportBookmarks)
         clickablePreference(preference = SETTINGS_IMPORT, onClick = this::importBookmarks)
@@ -100,6 +110,36 @@ class ExportSettingsFragment : AbstractSettingsFragment() {
         clickablePreference(preference = SETTINGS_SETTINGS_IMPORT, onClick = this::importSettings)
 
         clickablePreference(preference = SETTINGS_DELETE_SETTINGS, onClick = this::clearSettings)
+    }
+
+
+    fun requestPermissions(success: ()->Unit, fail: ()->Unit) {
+        XXPermissions.with(this)
+            .permission(Permission.MANAGE_EXTERNAL_STORAGE)
+            .request(object : OnPermissionCallback {
+
+                override fun onGranted(permissions: MutableList<String>, allGranted: Boolean) {
+                    if (!allGranted) {
+//                        toast("获取部分权限成功，但部分权限未正常授予")
+                        fail.invoke()
+                        return
+                    }
+                    success.invoke()
+//                    toast("获取录音和日历权限成功")
+                }
+
+                override fun onDenied(permissions: MutableList<String>, doNotAskAgain: Boolean) {
+                    if (doNotAskAgain) {
+//                        toast("被永久拒绝授权，请手动授予录音和日历权限")
+                        // 如果是被永久拒绝就跳转到应用权限系统设置页面
+                        XXPermissions.startPermissionActivity(requireActivity(), permissions)
+                        fail.invoke()
+                    } else {
+//                        toast("获取录音和日历权限失败")
+                        fail.invoke()
+                    }
+                }
+            })
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -127,29 +167,48 @@ class ExportSettingsFragment : AbstractSettingsFragment() {
     }
 
     private fun exportTabs() {
-        PermissionsManager.getInstance()
-            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS,
-                object : PermissionsResultAction() {
-                    override fun onGranted() {
-                        val intent = Intent(context, MainActivity::class.java)
-                        intent.putExtra("EXPORT_TABS", true)
-                        startActivity(intent)
-                        application.toast(R.string.save_file_success)
-                    }
+        requestPermissions(success = {
+            val intent = Intent(context, MainActivity::class.java)
+            intent.putExtra("EXPORT_TABS", true)
+            startActivity(intent)
+            application.toast(R.string.save_file_success)
+        }, fail = {
+            val activity = activity
+            if (activity != null && !activity.isFinishing && isAdded) {
+                Utils.createInformativeDialog(
+                    activity,
+                    R.string.title_error,
+                    R.string.import_bookmark_error
+                )
+            } else {
+                application.toast(R.string.bookmark_export_failure)
+            }
+        })
 
-                    override fun onDenied(permission: String) {
-                        val activity = activity
-                        if (activity != null && !activity.isFinishing && isAdded) {
-                            Utils.createInformativeDialog(
-                                activity,
-                                R.string.title_error,
-                                R.string.import_bookmark_error
-                            )
-                        } else {
-                            application.toast(R.string.bookmark_export_failure)
-                        }
-                    }
-                })
+
+//        PermissionsManager.getInstance()
+//            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS,
+//                object : PermissionsResultAction() {
+//                    override fun onGranted() {
+//                        val intent = Intent(context, MainActivity::class.java)
+//                        intent.putExtra("EXPORT_TABS", true)
+//                        startActivity(intent)
+//                        application.toast(R.string.save_file_success)
+//                    }
+//
+//                    override fun onDenied(permission: String) {
+//                        val activity = activity
+//                        if (activity != null && !activity.isFinishing && isAdded) {
+//                            Utils.createInformativeDialog(
+//                                activity,
+//                                R.string.title_error,
+//                                R.string.import_bookmark_error
+//                            )
+//                        } else {
+//                            application.toast(R.string.bookmark_export_failure)
+//                        }
+//                    }
+//                })
 
     }
 
@@ -179,26 +238,40 @@ class ExportSettingsFragment : AbstractSettingsFragment() {
     }
 
     private fun exportSettings() {
-        PermissionsManager.getInstance()
-            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS,
-                object : PermissionsResultAction() {
-                    override fun onGranted() {
-                        showExportSettingsDialog()
-                    }
-
-                    override fun onDenied(permission: String) {
-                        val activity = activity
-                        if (activity != null && !activity.isFinishing && isAdded) {
-                            Utils.createInformativeDialog(
-                                activity,
-                                R.string.title_error,
-                                R.string.action_ok
-                            )
-                        } else {
-                            application.toast(R.string.error)
-                        }
-                    }
-                })
+        requestPermissions(success = {
+            showExportSettingsDialog()
+        }, fail = {
+            val activity = activity
+            if (activity != null && !activity.isFinishing && isAdded) {
+                Utils.createInformativeDialog(
+                    activity,
+                    R.string.title_error,
+                    R.string.action_ok
+                )
+            } else {
+                application.toast(R.string.error)
+            }
+        })
+//        PermissionsManager.getInstance()
+//            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS,
+//                object : PermissionsResultAction() {
+//                    override fun onGranted() {
+//                        showExportSettingsDialog()
+//                    }
+//
+//                    override fun onDenied(permission: String) {
+//                        val activity = activity
+//                        if (activity != null && !activity.isFinishing && isAdded) {
+//                            Utils.createInformativeDialog(
+//                                activity,
+//                                R.string.title_error,
+//                                R.string.action_ok
+//                            )
+//                        } else {
+//                            application.toast(R.string.error)
+//                        }
+//                    }
+//                })
     }
 
     private fun showExportSettingsDialog() {
@@ -267,26 +340,41 @@ class ExportSettingsFragment : AbstractSettingsFragment() {
         }
 
     private fun exportBookmarks() {
-        PermissionsManager.getInstance()
-            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS,
-                object : PermissionsResultAction() {
-                    override fun onGranted() {
-                        showExportBookmarksDialog()
-                    }
+        requestPermissions(success = {
+            showExportBookmarksDialog()
+        }, fail = {
+            val activity = activity
+            if (activity != null && !activity.isFinishing && isAdded) {
+                Utils.createInformativeDialog(
+                    activity,
+                    R.string.title_error,
+                    R.string.bookmark_export_failure
+                )
+            } else {
+                application.toast(R.string.bookmark_export_failure)
+            }
+        })
 
-                    override fun onDenied(permission: String) {
-                        val activity = activity
-                        if (activity != null && !activity.isFinishing && isAdded) {
-                            Utils.createInformativeDialog(
-                                activity,
-                                R.string.title_error,
-                                R.string.bookmark_export_failure
-                            )
-                        } else {
-                            application.toast(R.string.bookmark_export_failure)
-                        }
-                    }
-                })
+//        PermissionsManager.getInstance()
+//            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS,
+//                object : PermissionsResultAction() {
+//                    override fun onGranted() {
+//                        showExportBookmarksDialog()
+//                    }
+//
+//                    override fun onDenied(permission: String) {
+//                        val activity = activity
+//                        if (activity != null && !activity.isFinishing && isAdded) {
+//                            Utils.createInformativeDialog(
+//                                activity,
+//                                R.string.title_error,
+//                                R.string.bookmark_export_failure
+//                            )
+//                        } else {
+//                            application.toast(R.string.bookmark_export_failure)
+//                        }
+//                    }
+//                })
     }
 
     private fun showExportBookmarksDialog() {
@@ -349,31 +437,42 @@ class ExportSettingsFragment : AbstractSettingsFragment() {
         }
 
     private fun importBookmarks() {
-        PermissionsManager.getInstance()
-            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS,
-                object : PermissionsResultAction() {
-                    override fun onGranted() {
-                        showImportBookmarksDialog()
-                    }
+        requestPermissions(success = {
+            showImportBookmarksDialog()
+        }, fail = {
 
-                    override fun onDenied(permission: String) {
-                        //TODO Show message
-                    }
-                })
+        })
+
+//        PermissionsManager.getInstance()
+//            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS,
+//                object : PermissionsResultAction() {
+//                    override fun onGranted() {
+//                        showImportBookmarksDialog()
+//                    }
+//
+//                    override fun onDenied(permission: String) {
+//                        //TODO Show message
+//                    }
+//                })
     }
 
     private fun importSettings() {
-        PermissionsManager.getInstance()
-            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS,
-                object : PermissionsResultAction() {
-                    override fun onGranted() {
-                        showImportSettingsDialog()
-                    }
+        requestPermissions(success = {
+            showImportSettingsDialog()
+        }, fail = {
 
-                    override fun onDenied(permission: String) {
-                        //TODO Show message
-                    }
-                })
+        })
+//        PermissionsManager.getInstance()
+//            .requestPermissionsIfNecessaryForResult(activity, REQUIRED_PERMISSIONS,
+//                object : PermissionsResultAction() {
+//                    override fun onGranted() {
+//                        showImportSettingsDialog()
+//                    }
+//
+//                    override fun onDenied(permission: String) {
+//                        //TODO Show message
+//                    }
+//                })
     }
 
     private fun deleteAllBookmarks() {
