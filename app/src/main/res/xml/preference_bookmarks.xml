@@ -17,7 +17,9 @@
             android:title="@string/action_delete_all_bookmarks"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/backup_tabs">
+    <PreferenceCategory
+        android:title="@string/backup_tabs"
+        app:isPreferenceVisible="false">
         <Preference
             android:key="export_tab"
             android:singleLineTitle="false"
