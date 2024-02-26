@@ -3,30 +3,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory android:title="@string/settings_about">
-        <Preference
-            app:isPreferenceVisible="false"
-            android:summary="@string/url_project"
-            android:title="@string/more">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/CookieJarApps/SmartCookieWeb">
-                <extra
-                    android:name="SOURCE"
-                    android:value="SELF" />
-            </intent>
-        </Preference>
-        <Preference
-            android:key="pref_version"
-            android:title="@string/version" />
-        <Preference
-            android:key="pref_webview"
-            android:title="@string/webview_version" />
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/licenses"
-        app:isPreferenceVisible="false"
-        >
+    <PreferenceCategory android:title="@string/licenses">
         <Preference
             android:summary="@string/mpl_license"
             android:title="@string/app_name">
