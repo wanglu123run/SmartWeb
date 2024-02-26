@@ -20,8 +20,9 @@ android {
     defaultConfig {
         minSdk 19
         targetSdk 34
-        versionName "17.0"
-        versionCode 153
+        versionName "1.0.0-test"
+        versionCode 1
+        applicationId "com.mega.browser.mobile.android"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
@@ -58,27 +59,6 @@ android {
         }
     }
 
-    flavorDimensions "capabilities"
-
-    productFlavors {
-        scMain {
-            dimension "capabilities"
-            applicationId "com.cookiegames.smartcookie"
-            resValue "string", "app_name", "SmartCookieWeb"
-        }
-        stable {
-            dimension "capabilities"
-            applicationId "com.cookiegames.smartcookie"
-            resValue "string", "app_name", "SmartCookieWeb"
-        }
-        beta {
-            dimension 'capabilities'
-            applicationId 'com.cookiejarapps.smartcookiebeta'
-            resValue "string", "app_name", "SmartCookieWeb beta"
-            versionCode 16
-            versionName "17.0-beta4"
-        }
-    }
 
     lintOptions {
         abortOnError true
