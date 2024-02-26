@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory android:title="@string/homepage_settings">
         <Preference
             android:key="home"
@@ -14,6 +15,7 @@
             android:title="@string/image_url"
             android:singleLineTitle="false"/>
         <SwitchPreference
+            app:isPreferenceVisible="false"
             android:defaultValue="true"
             android:singleLineTitle="false"
             android:key="show_shortcuts"

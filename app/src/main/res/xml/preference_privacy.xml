@@ -4,7 +4,7 @@
 
     <PreferenceCategory android:title="@string/privacy_set">
         <SwitchPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="location"
             android:singleLineTitle="false"
             android:title="@string/location"/>
@@ -87,6 +87,7 @@
             android:title="@string/only_clear"
             android:summary="@string/only_clear_summary"/>
     <Preference
+        app:isPreferenceVisible="false"
         android:key="app_lock"
         android:singleLineTitle="false"
         android:title="@string/app_lock"/>

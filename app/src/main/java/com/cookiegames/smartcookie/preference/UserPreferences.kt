@@ -45,7 +45,7 @@ class UserPreferences @Inject constructor(
 
     var blockMalwareEnabled by preferences.booleanPreference(BLOCK_MALWARE, true)
 
-    var startPageThemeEnabled by preferences.booleanPreference(START_THEME, true)
+    var startPageThemeEnabled by preferences.booleanPreference(START_THEME, false) //修改前默认true
 
     var tabsToForegroundEnabled by preferences.booleanPreference(FOREGROUND, true)
 
@@ -374,7 +374,7 @@ class UserPreferences @Inject constructor(
     var translationEndpoint by preferences.stringPreference(TRANSLATION_ENDPOINT, "https://smartcookieweb.com/translate/")
     var newsEndpoint by preferences.stringPreference(NEWS_ENDPOINT, "https://news.smartcookieweb.com/api.php")
 
-    var useNewDownloader by preferences.booleanPreference(NEW_DOWNLOADER, false)
+    var useNewDownloader by preferences.booleanPreference(NEW_DOWNLOADER, true)//默认使用集成下载器
 
     // Show second navbar at the bottom of the screen
     var navbar by preferences.booleanPreference(SECOND_BAR, false)

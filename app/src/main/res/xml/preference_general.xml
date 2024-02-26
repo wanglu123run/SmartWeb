@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory android:title="@string/settings_general">
         <SwitchPreference
@@ -20,16 +21,19 @@
             android:title="@string/load_tabs"/>
         <SwitchPreference
             android:defaultValue="false"
+            app:isPreferenceVisible="false"
             android:key="translate"
             android:singleLineTitle="false"
             android:title="@string/translator"/>
         <SwitchPreference
             android:defaultValue="false"
+            app:isPreferenceVisible="false"
             android:key="amp"
             android:singleLineTitle="false"
             android:title="@string/amp_to_html"/>
         <SwitchPreference
             android:defaultValue="false"
+            app:isPreferenceVisible="false"
             android:key="cb_colormode"
             android:singleLineTitle="false"
             android:title="@string/color_mode"/>
@@ -69,10 +73,12 @@
             android:singleLineTitle="false"
             android:title="@string/search"/>
         <Preference
+            app:isPreferenceVisible="false"
             android:key="suggestions_choice"
             android:singleLineTitle="false"
             android:title="@string/search_suggestions"/>
          <Preference
+             app:isPreferenceVisible="false"
             android:key="suggestions_number"
             android:singleLineTitle="false"
             android:title="@string/suggest"/>

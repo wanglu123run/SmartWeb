@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory android:title="@string/settings_advanced">
         <SwitchPreference
@@ -31,6 +32,7 @@
             android:singleLineTitle="false"
             android:title="@string/restore" />
         <SwitchPreference
+            app:isPreferenceVisible="false"
             android:defaultValue="true"
             android:key="downloader"
             android:singleLineTitle="false"
@@ -65,10 +67,12 @@
             android:singleLineTitle="false"
             android:title="@string/url_contents" />
         <Preference
+            app:isPreferenceVisible="false"
             android:key="translation_endpoint"
             android:singleLineTitle="false"
             android:title="@string/translation_endpoint" />
         <Preference
+            app:isPreferenceVisible="false"
             android:key="news_endpoint"
             android:singleLineTitle="false"
             android:title="@string/news_endpoint" />

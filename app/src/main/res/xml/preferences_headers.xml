@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.preference.PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.preference.Preference
         android:fragment="com.cookiegames.smartcookie.settings.fragment.GeneralSettingsFragment"
         android:icon="@drawable/ic_settings_general_layers"
@@ -49,6 +49,7 @@
         android:fragment="com.cookiegames.smartcookie.settings.fragment.ExtensionsSettingsFragment"
         android:icon="@drawable/ic_settings_extensions_layers"
         android:title="@string/extensions"
+       app:isPreferenceVisible="false"
        android:singleLineTitle="false"
        android:summary="@string/extensions_description" />
     <androidx.preference.Preference
@@ -59,6 +60,7 @@
         android:title="@string/settings_about"/>
     <androidx.preference.Preference
         android:icon="@drawable/ic_settings_faq_layers"
+        app:isPreferenceVisible="false"
         android:summary="@string/faq_description"
         android:singleLineTitle="false"
         android:title="@string/faq">
