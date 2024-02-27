@@ -266,9 +266,9 @@
     <string name="message_open_download_fail">이 파일은 더 이상 존재하지 않습니다</string>
     <string name="this_project">이 프로젝트</string>
 
-    <string name="scw">Mega Browser 웹 소스 코드</string>
+    <string name="scw">MegaBrowser 웹 소스 코드</string>
     <string name="action_home">집</string>
-    <string name="description">Mega Browser에 대해 알아보기</string>
+    <string name="description">MegaBrowser에 대해 알아보기</string>
 
     <string name="faq">자주하는 질문</string>
     <string name="faq_description">자주 묻는 질문</string>
@@ -354,7 +354,7 @@
     <string name="search_engine_yandex">얀 덱스</string>
 
     <string name="privacy">개인 정보 보호 정책보기</string>
-    <string name="privacy_info">Mega Browser 개인 정보 보호 정책을 읽으십시오</string>
+    <string name="privacy_info">MegaBrowser 개인 정보 보호 정책을 읽으십시오</string>
     <string name="block_malware">악성 사이트 차단</string>
     <string name="block_sites">맞춤 사이트 차단 (베타)</string>
     <string name="block_sites_title">맞춤 사이트 차단 (쉼표가있는 별도의 사이트)</string>

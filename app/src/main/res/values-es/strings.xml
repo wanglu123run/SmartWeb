@@ -266,9 +266,9 @@
     <string name="flash_not_supported">Su dispositivo no es compatible con Flash Player</string>
     <string name="message_open_download_fail">Este archivo ya no existe</string>
     <string name="this_project">Este proyecto</string>
-    <string name="scw">Código fuente de Mega Browser</string>
+    <string name="scw">Código fuente de MegaBrowser</string>
     <string name="action_home">Casa</string>
-    <string name="description">Aprenda acerca de Mega Browser</string>
+    <string name="description">Aprenda acerca de MegaBrowser</string>
     <string name="faq">Preguntas más frecuentes</string>
     <string name="faq_description">Preguntas frecuentes</string>
     <string name="block_source_default">Hosts predeterminados</string>
@@ -333,7 +333,7 @@
     <string name="search_engine_searx">SearX.be</string>
     <string name="search_engine_searx_cookiejarapps">Buscador de CookieJarApps, instancia de SearX</string>
     <string name="privacy">Ver política de privacidad</string>
-    <string name="privacy_info">Lea la política de privacidad de Mega Browser</string>
+    <string name="privacy_info">Lea la política de privacidad de MegaBrowser</string>
     <string name="block_malware">Bloquear sitios maliciosos</string>
     <string name="block_sites">Bloque de sitio personalizado (beta)</string>
     <string name="block_sites_title">Bloqueo de sitio personalizado (sitios separados con una coma)</string>
@@ -418,7 +418,7 @@
     <string name="unlisted_javascript">Bloquear JavaScript para sitios listados</string>
     <string name="listed_javascript">Sólo permitir JavaScript para sitios listados</string>
     <string name="confirm">Confirmar reseteo</string>
-    <string name="clear">Esto borrará todos los datos almacenados por Mega Browser en su dispositivo</string>
+    <string name="clear">Esto borrará todos los datos almacenados por MegaBrowser en su dispositivo</string>
     <string name="only_clear">Sólo limpiar al finalizar la sesión del navegador</string>
     <string name="only_clear_summary">Borrar sólo las opciones anteriores cuando todas las pestañas del navegador hayan sido cerradas, en lugar de cuando la aplicación esté cerrada</string>
     <string name="enable_in_settings">El relleno automático necesita configurarse en los ajustes de Android para que esta opción tenga efecto</string>
@@ -436,6 +436,6 @@
     <string name="download_description">Información sobre el progreso de la descarga</string>
     <string name="download_to_sd">Download to SD card</string>
     <string name="legacy_download_manager">Use integrated download manager</string>
-    <string name="legacy_download_manager_desc">Download files using the Mega Browser download manager, instead of the system one</string>
+    <string name="legacy_download_manager_desc">Download files using the MegaBrowser download manager, instead of the system one</string>
     <!-- finish pages -->
 </resources>

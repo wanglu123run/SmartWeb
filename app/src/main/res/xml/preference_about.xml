@@ -10,7 +10,7 @@
 <!--            android:title="@string/more">-->
 <!--            <intent-->
 <!--                android:action="android.intent.action.VIEW"-->
-<!--                android:data="https://github.com/CookieJarApps/Mega Browser">-->
+<!--                android:data="https://github.com/CookieJarApps/MegaBrowser">-->
 <!--                <extra-->
 <!--                    android:name="SOURCE"-->
 <!--                    android:value="SELF" />-->

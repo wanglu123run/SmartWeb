@@ -533,7 +533,7 @@ class LightningWebClient internal constructor(private val mActivity: Activity, p
                 try {
                     mActivity.startActivity(intent)
                 } catch (e: Exception) {
-                    println("Mega Browser: cannot open downloaded file")
+                    println("MegaBrowser: cannot open downloaded file")
                 }
 
             } else {

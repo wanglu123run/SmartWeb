@@ -266,9 +266,9 @@
     <string name="message_open_download_fail">קובץ זה אינו קיים עוד</string>
     <string name="this_project">הפרויקט הזה</string>
 
-    <string name="scw">קוד המקור של Mega Browser</string>
+    <string name="scw">קוד המקור של MegaBrowser</string>
     <string name="action_home">בית</string>
-    <string name="description">למדו על Mega Browser</string>
+    <string name="description">למדו על MegaBrowser</string>
 
     <string name="faq">שאלות נפוצות</string>
     <string name="faq_description">שאלות נפוצות</string>
@@ -356,7 +356,7 @@
     <string name="search_engine_yandex">יאנדקס</string>
 
     <string name="privacy">צפו במדיניות הפרטיות</string>
-    <string name="privacy_info">קרא את מדיניות הפרטיות של Mega Browser</string>
+    <string name="privacy_info">קרא את מדיניות הפרטיות של MegaBrowser</string>
     <string name="block_malware">חסום אתרים זדוניים</string>
     <string name="block_sites">חסימת אתרים מותאמת אישית (בטא)</string>
     <string name="block_sites_title">חסימת אתרים מותאמת אישית (אתרים נפרדים עם פסיק)</string>
