@@ -174,7 +174,7 @@ class PopUpClass {
                 MenuItemClass("reading_mode", R.string.reading_mode, R.drawable.ic_action_reading, true),
                 MenuDividerClass(),
                 MenuItemClass("page_tools", R.string.dialog_tools_title, R.drawable.ic_page_tools, true),
-                MenuItemClass("add_to_homepage", R.string.action_add_to_homescreen, R.drawable.ic_round_smartphone, true),
+//                MenuItemClass("add_to_homepage", R.string.action_add_to_homescreen, R.drawable.ic_round_smartphone, true),
                 MenuItemClass("settings", R.string.settings, R.drawable.ic_round_settings, true)
         )
 
@@ -184,7 +184,7 @@ class PopUpClass {
                 MenuItemClass("print", R.string.action_print, R.drawable.ic_round_print, true),
                 MenuItemClass("find_in_page", R.string.action_find, R.drawable.ic_search_find, true),
                 MenuItemClass("copy_link", R.string.dialog_copy_link, R.drawable.ic_content_copy_black, true),
-                MenuItemClass("add_to_homepage", R.string.action_add_to_homescreen, R.drawable.ic_round_smartphone, true),
+//                MenuItemClass("add_to_homepage", R.string.action_add_to_homescreen, R.drawable.ic_round_smartphone, true),
                 MenuDividerClass(),
                 MenuItemClass("bookmarks", R.string.action_bookmarks, R.drawable.ic_action_star, true),
                 MenuItemClass("reading_mode", R.string.reading_mode, R.drawable.ic_action_reading, true),
