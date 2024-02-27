@@ -15,7 +15,7 @@ import com.mega.browser.mobile.android.log.Logger
 import com.mega.browser.mobile.android.preference.UserPreferences
 import com.mega.browser.mobile.android.ssl.SslState
 import com.mega.browser.mobile.android.view.BundleInitializer
-import com.mega.browser.mobile.android.view.SmartCookieView
+import com.mega.browser.mobile.android.view.MegaCookieView
 import com.mega.browser.mobile.android.view.TabInitializer
 import com.mega.browser.mobile.android.view.UrlInitializer
 import com.mega.browser.mobile.android.view.find.FindResults
@@ -51,9 +51,9 @@ class BrowserPresenter(
     private val logger: Logger
 ) {
 
-    private var currentTab: SmartCookieView? = null
+    private var currentTab: MegaCookieView? = null
     private var shouldClose: Boolean = false
-    private var intented: SmartCookieView? = null
+    private var intented: MegaCookieView? = null
     private var sslStateSubscription: Disposable? = null
 
     init {
@@ -84,11 +84,11 @@ class BrowserPresenter(
      *
      * @param tab the tab that changed, may be null.
      */
-    fun tabChangeOccurred(tab: SmartCookieView?) = tab?.let {
+    fun tabChangeOccurred(tab: MegaCookieView?) = tab?.let {
         view.notifyTabViewChanged(tabsModel.indexOfTab(it))
     }
 
-    private fun onTabChanged(newTab: SmartCookieView?) {
+    private fun onTabChanged(newTab: MegaCookieView?) {
         logger.log(TAG, "On tab changed")
         view.updateSslState(newTab?.currentSslState() ?: SslState.None)
 

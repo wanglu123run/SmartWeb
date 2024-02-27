@@ -17,7 +17,7 @@ import org.json.JSONObject
 /**
  * Search suggestions provider for Google search engine.
  */
-class SmartCookieWebSuggestionsModel(
+class MegaWebSuggestionsModel(
     okHttpClient: Single<OkHttpClient>,
     requestFactory: RequestFactory,
     application: Application,

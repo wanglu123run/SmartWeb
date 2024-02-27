@@ -383,7 +383,7 @@ class UserPreferences @Inject constructor(
     var link1 by preferences.stringPreference(LINK1, "https://github.com")
     var link2 by preferences.stringPreference(LINK2, "https://google.com")
     var link3 by preferences.stringPreference(LINK3, "https://youtube.com")
-    var link4 by preferences.stringPreference(LINK4, "https://speedtest.cookiejarapps.com")
+    var link4 by preferences.stringPreference(LINK4, "https://www.facebook.com")
 
     // API endpoints
     var translationEndpoint by preferences.stringPreference(TRANSLATION_ENDPOINT, "https://megabrowser.com/translate/")

@@ -55,7 +55,6 @@ import com.anthonycr.grant.PermissionsManager
 import com.mega.browser.mobile.android.AppTheme
 import com.mega.browser.mobile.android.IncognitoActivity
 import com.mega.browser.mobile.android.R
-import com.mega.browser.mobile.android.browser.*
 import com.mega.browser.mobile.android.browser.bookmarks.BookmarksDrawerView
 import com.mega.browser.mobile.android.browser.tabs.TabsDesktopView
 import com.mega.browser.mobile.android.browser.tabs.TabsDrawerView
@@ -66,11 +65,9 @@ import com.mega.browser.mobile.android.database.SearchSuggestion
 import com.mega.browser.mobile.android.database.WebPage
 import com.mega.browser.mobile.android.database.bookmark.BookmarkRepository
 import com.mega.browser.mobile.android.database.history.HistoryRepository
-import com.mega.browser.mobile.android.di.*
 import com.mega.browser.mobile.android.dialog.BrowserDialog
 import com.mega.browser.mobile.android.dialog.DialogItem
 import com.mega.browser.mobile.android.dialog.LightningDialogBuilder
-import com.mega.browser.mobile.android.extensions.*
 import com.mega.browser.mobile.android.html.bookmark.BookmarkPageFactory
 import com.mega.browser.mobile.android.html.history.HistoryPageFactory
 import com.mega.browser.mobile.android.html.homepage.HomePageFactory
@@ -87,8 +84,6 @@ import com.mega.browser.mobile.android.search.SuggestionsAdapter
 import com.mega.browser.mobile.android.ssl.SslState
 import com.mega.browser.mobile.android.ssl.createSslDrawableForState
 import com.mega.browser.mobile.android.ssl.showSslDialog
-import com.mega.browser.mobile.android.utils.*
-import com.mega.browser.mobile.android.view.*
 import com.mega.browser.mobile.android.view.SearchView
 import com.mega.browser.mobile.android.view.find.FindResults
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -129,7 +124,7 @@ import com.mega.browser.mobile.android.view.IncognitoPageInitializer
 import com.mega.browser.mobile.android.view.NoOpInitializer
 import com.mega.browser.mobile.android.view.OnboardingPageInitializer
 import com.mega.browser.mobile.android.view.ResultMessageInitializer
-import com.mega.browser.mobile.android.view.SmartCookieView
+import com.mega.browser.mobile.android.view.MegaCookieView
 import com.mega.browser.mobile.android.view.UrlInitializer
 import io.reactivex.Completable
 import io.reactivex.Scheduler
@@ -1163,7 +1158,7 @@ abstract class BrowserActivity : ThemableBrowserActivity(), BrowserView, UIContr
         drawable?.let { visibility = VISIBLE } ?: run { visibility = GONE }
     }
 
-    override fun tabChanged(tab: SmartCookieView) {
+    override fun tabChanged(tab: MegaCookieView) {
         presenter?.tabChangeOccurred(tab)
     }
 
@@ -2067,14 +2062,14 @@ abstract class BrowserActivity : ThemableBrowserActivity(), BrowserView, UIContr
     }
 
     /**
-     * Closes the specified [SmartCookieView]. This implements
+     * Closes the specified [MegaCookieView]. This implements
      * the JavaScript callback that asks the tab to close itself and
      * is especially helpful when a page creates a redirect and does
      * not need the tab to stay open any longer.
      *
      * @param tab the LightningView to close, delete it.
      */
-    override fun onCloseWindow(tab: SmartCookieView) {
+    override fun onCloseWindow(tab: MegaCookieView) {
         presenter?.deleteTab(tabsManager.positionOf(tab))
     }
 

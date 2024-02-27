@@ -56,12 +56,12 @@ import java.lang.ref.WeakReference
 import javax.inject.Inject
 
 /**
- * [SmartCookieView] acts as a tab for the browser, handling WebView creation and handling logic, as
+ * [MegaCookieView] acts as a tab for the browser, handling WebView creation and handling logic, as
  * well as properly initialing it. All interactions with the WebView should be made through this
  * class.
  */
 
-class SmartCookieView(
+class MegaCookieView(
     private val activity: Activity,
     tabInitializer: TabInitializer,
     val isIncognito: Boolean,
@@ -80,11 +80,11 @@ class SmartCookieView(
     val id = View.generateViewId()
 
     /**
-     * Getter for the [SmartCookieViewTitle] of the current LightningView instance.
+     * Getter for the [MegaViewTitle] of the current LightningView instance.
      *
      * @return a NonNull instance of LightningViewTitle
      */
-    val titleInfo: SmartCookieViewTitle
+    val titleInfo: MegaViewTitle
 
     /**
      * Gets the current WebView instance of the tab.
@@ -142,7 +142,7 @@ class SmartCookieView(
     internal lateinit var mainScheduler: Scheduler
     @Inject lateinit var networkConnectivityModel: NetworkConnectivityModel
 
-    private val smartCookieWebClient: SmartCookieWebClient
+    private val megaWebClient: MegaWebClient
 
     private val networkDisposable: Disposable
 
@@ -208,14 +208,14 @@ class SmartCookieView(
         activity.injector.inject(this)
         uiController = activity as UIController
 
-        titleInfo = SmartCookieViewTitle(activity)
+        titleInfo = MegaViewTitle(activity)
 
         maxFling = ViewConfiguration.get(activity).scaledMaximumFlingVelocity.toFloat()
-        smartCookieWebClient = SmartCookieWebClient(activity, this)
+        megaWebClient = MegaWebClient(activity, this)
         gestureDetector = GestureDetector(activity, CustomGestureListener())
 
         val tab = WebView(activity).also { webView = it }.apply {
-            id = this@SmartCookieView.id
+            id = this@MegaCookieView.id
 
             isFocusableInTouchMode = true
             isFocusable = true
@@ -232,8 +232,8 @@ class SmartCookieView(
             isScrollbarFadingEnabled = true
             isSaveEnabled = true
             setNetworkAvailable(true)
-            webChromeClient = SmartCookieChromeClient(activity, this@SmartCookieView)
-            webViewClient = smartCookieWebClient
+            webChromeClient = MegaChromeClient(activity, this@MegaCookieView)
+            webViewClient = megaWebClient
 
             setDownloadListener(LightningDownloadListener(activity))
             setOnTouchListener(TouchListener())
@@ -259,12 +259,12 @@ class SmartCookieView(
     }
 
     fun setWhitelistIntent(a: Boolean) {
-        smartCookieWebClient.setWhitelist(a)
+        megaWebClient.setWhitelist(a)
     }
 
-    fun currentSslState(): SslState = smartCookieWebClient.sslState
+    fun currentSslState(): SslState = megaWebClient.sslState
 
-    fun sslStateObservable(): Observable<SslState> = smartCookieWebClient.sslStateObservable()
+    fun sslStateObservable(): Observable<SslState> = megaWebClient.sslStateObservable()
 
     /**
      * This method loads the homepage for the browser. Either it loads the URL stored as the
@@ -319,7 +319,7 @@ class SmartCookieView(
     fun initializePreferences() {
         val settings = webView?.settings ?: return
 
-        smartCookieWebClient.updatePreferences()
+        megaWebClient.updatePreferences()
 
         val modifiesHeaders = userPreferences.doNotTrackEnabled
             || userPreferences.saveDataEnabled
@@ -652,7 +652,7 @@ class SmartCookieView(
             return
         }
         //webView?.reload()
-        smartCookieWebClient.reloadIncludingErrorPage(webView)
+        megaWebClient.reloadIncludingErrorPage(webView)
     }
 
     /**
@@ -945,9 +945,9 @@ class SmartCookieView(
      * reference to the WebView and therefore will not
      * leak it if the WebView is garbage collected.
      */
-    private class WebViewHandler(view: SmartCookieView) : Handler() {
+    private class WebViewHandler(view: MegaCookieView) : Handler() {
 
-        private val reference: WeakReference<SmartCookieView> = WeakReference(view)
+        private val reference: WeakReference<MegaCookieView> = WeakReference(view)
 
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
@@ -959,7 +959,7 @@ class SmartCookieView(
 
     companion object {
 
-        private const val TAG = "SmartCookieView"
+        private const val TAG = "MegaCookieView"
 
         const val HEADER_REQUESTED_WITH = "X-Requested-With"
         const val HEADER_WAP_PROFILE = "X-Wap-Profile"

@@ -6,7 +6,7 @@ package com.mega.browser.mobile.android.controller
 import com.mega.browser.mobile.android.browser.TabsManager
 import com.mega.browser.mobile.android.database.Bookmark
 import com.mega.browser.mobile.android.dialog.LightningDialogBuilder
-import com.mega.browser.mobile.android.view.SmartCookieView
+import com.mega.browser.mobile.android.view.MegaCookieView
 import android.content.pm.ActivityInfo
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
@@ -110,7 +110,7 @@ interface UIController {
      * Notify the browser that the website currently being displayed by the [tab] wants to be
      * closed.
      */
-    fun onCloseWindow(tab: SmartCookieView)
+    fun onCloseWindow(tab: MegaCookieView)
 
     /**
      * Hide the search bar from view via animation.
@@ -170,7 +170,7 @@ interface UIController {
     /**
      * Notify the UI that the [tab] should be displayed.
      */
-    fun tabChanged(tab: SmartCookieView)
+    fun tabChanged(tab: MegaCookieView)
 
     /**
      * Notify the browser that the user pressed the back button.

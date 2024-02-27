@@ -14,9 +14,9 @@ import com.mega.browser.mobile.android.reading.activity.ReadingActivity
 import com.mega.browser.mobile.android.search.SuggestionsAdapter
 import com.mega.browser.mobile.android.settings.activity.SettingsActivity
 import com.mega.browser.mobile.android.settings.activity.ThemableSettingsActivity
-import com.mega.browser.mobile.android.view.SmartCookieChromeClient
-import com.mega.browser.mobile.android.view.SmartCookieView
-import com.mega.browser.mobile.android.view.SmartCookieWebClient
+import com.mega.browser.mobile.android.view.MegaChromeClient
+import com.mega.browser.mobile.android.view.MegaCookieView
+import com.mega.browser.mobile.android.view.MegaWebClient
 import android.app.Application
 import com.mega.browser.mobile.android.download.DownloadActivity
 import com.mega.browser.mobile.android.history.HistoryActivity
@@ -69,7 +69,7 @@ interface AppComponent {
 
     fun inject(builder: LightningDialogBuilder)
 
-    fun inject(smartCookieView: SmartCookieView)
+    fun inject(megaCookieView: MegaCookieView)
 
     fun inject(activity: ThemableBrowserActivity)
 
@@ -79,7 +79,7 @@ interface AppComponent {
 
     fun inject(activity: ReadingActivity)
 
-    fun inject(webClient: SmartCookieWebClient)
+    fun inject(webClient: MegaWebClient)
 
     fun inject(activity: SettingsActivity)
 
@@ -95,7 +95,7 @@ interface AppComponent {
 
     fun inject(suggestionsAdapter: SuggestionsAdapter)
 
-    fun inject(chromeClient: SmartCookieChromeClient)
+    fun inject(chromeClient: MegaChromeClient)
 
     fun inject(searchBoxModel: SearchBoxModel)
 

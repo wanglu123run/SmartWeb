@@ -12,11 +12,9 @@ import com.mega.browser.mobile.android.R
 import com.mega.browser.mobile.android.browser.TabsView
 import com.mega.browser.mobile.android.controller.UIController
 import com.mega.browser.mobile.android.extensions.inflater
-import com.mega.browser.mobile.android.list.HorizontalItemAnimator
 import com.mega.browser.mobile.android.preference.UserPreferences
-import com.mega.browser.mobile.android.utils.ThemeUtils
 import com.mega.browser.mobile.android.utils.Utils
-import com.mega.browser.mobile.android.view.SmartCookieView
+import com.mega.browser.mobile.android.view.MegaCookieView
 
 
 /**
@@ -85,7 +83,7 @@ class TabsDesktopView @JvmOverloads constructor(
     }
 
     private fun displayTabs() {
-        tabsAdapter.showTabs(uiController.getTabModel().allTabs.map(SmartCookieView::asTabViewState))
+        tabsAdapter.showTabs(uiController.getTabModel().allTabs.map(MegaCookieView::asTabViewState))
     }
 
     override fun tabsInitialized() {

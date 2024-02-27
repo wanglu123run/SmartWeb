@@ -8,15 +8,12 @@ import com.mega.browser.mobile.android.search.engine.AskSearch
 import com.mega.browser.mobile.android.search.engine.BaiduSearch
 import com.mega.browser.mobile.android.search.engine.BaseSearchEngine
 import com.mega.browser.mobile.android.search.engine.BingSearch
-import com.mega.browser.mobile.android.search.engine.CookieJarAppsSearch
 import com.mega.browser.mobile.android.search.engine.CustomSearch
 import com.mega.browser.mobile.android.search.engine.DuckLiteSearch
 import com.mega.browser.mobile.android.search.engine.DuckSearch
 import com.mega.browser.mobile.android.search.engine.EcosiaSearch
-import com.mega.browser.mobile.android.search.engine.EkoruSearch
 import com.mega.browser.mobile.android.search.engine.GoogleSearch
 import com.mega.browser.mobile.android.search.engine.NaverSearch
-import com.mega.browser.mobile.android.search.engine.SearxSearch
 import com.mega.browser.mobile.android.search.engine.StartPageMobileSearch
 import com.mega.browser.mobile.android.search.engine.StartPageSearch
 import com.mega.browser.mobile.android.search.engine.YahooSearch
@@ -27,7 +24,7 @@ import com.mega.browser.mobile.android.search.suggestions.GoogleSuggestionsModel
 import com.mega.browser.mobile.android.search.suggestions.NaverSuggestionsModel
 import com.mega.browser.mobile.android.search.suggestions.NoOpSuggestionsRepository
 import com.mega.browser.mobile.android.search.suggestions.RequestFactory
-import com.mega.browser.mobile.android.search.suggestions.SmartCookieWebSuggestionsModel
+import com.mega.browser.mobile.android.search.suggestions.MegaWebSuggestionsModel
 import com.mega.browser.mobile.android.search.suggestions.SuggestionsRepository
 import dagger.Reusable
 import io.reactivex.Single
@@ -56,7 +53,7 @@ class  SearchEngineProvider @Inject constructor(
             1 -> DuckSuggestionsModel(okHttpClient, requestFactory, application, logger)
             2 -> BaiduSuggestionsModel(okHttpClient, requestFactory, application, logger)
             3 -> NaverSuggestionsModel(okHttpClient, requestFactory, application, logger)
-            4 -> SmartCookieWebSuggestionsModel(okHttpClient, requestFactory, application, logger)
+            4 -> MegaWebSuggestionsModel(okHttpClient, requestFactory, application, logger)
             5 -> NoOpSuggestionsRepository()
             else -> GoogleSuggestionsModel(okHttpClient, requestFactory, application, logger)
         }
@@ -79,9 +76,9 @@ class  SearchEngineProvider @Inject constructor(
             10 -> YandexSearch()
             11 -> NaverSearch()
             12 -> EcosiaSearch()
-            13 -> EkoruSearch()
-            14 -> CookieJarAppsSearch()
-            15 -> SearxSearch()
+//            13 -> EkoruSearch()
+//            14 -> CookieJarAppsSearch()
+//            15 -> SearxSearch()
             else -> GoogleSearch()
         }
 
@@ -103,9 +100,9 @@ class  SearchEngineProvider @Inject constructor(
             is YandexSearch -> 10
             is NaverSearch -> 11
             is EcosiaSearch -> 12
-            is EkoruSearch -> 13
-            is CookieJarAppsSearch -> 14
-            is SearxSearch -> 15
+//            is EkoruSearch -> 13
+//            is CookieJarAppsSearch -> 14
+//            is SearxSearch -> 15
             else -> throw UnsupportedOperationException("Unknown search engine provided: " + searchEngine.javaClass)
         }
 
@@ -126,9 +123,9 @@ class  SearchEngineProvider @Inject constructor(
         YandexSearch(),
         NaverSearch(),
         EcosiaSearch(),
-        EkoruSearch(),
-        CookieJarAppsSearch(),
-        SearxSearch()
+//        EkoruSearch(),
+//        CookieJarAppsSearch(),
+//        SearxSearch()
     )
 
 }

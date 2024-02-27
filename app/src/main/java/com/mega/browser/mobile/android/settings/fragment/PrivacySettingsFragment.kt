@@ -22,8 +22,7 @@ import com.mega.browser.mobile.android.dialog.DialogItem
 import com.mega.browser.mobile.android.extensions.withSingleChoiceItems
 import com.mega.browser.mobile.android.isSupported
 import com.mega.browser.mobile.android.preference.UserPreferences
-import com.mega.browser.mobile.android.utils.WebUtils
-import com.mega.browser.mobile.android.view.SmartCookieView
+import com.mega.browser.mobile.android.view.MegaCookieView
 import io.reactivex.Completable
 import io.reactivex.Scheduler
 import java.io.File
@@ -146,7 +145,7 @@ class PrivacySettingsFragment : AbstractSettingsFragment() {
                 resources.getString(R.string.crash_warning)
             }
             else{
-                "${SmartCookieView.HEADER_REQUESTED_WITH}, ${SmartCookieView.HEADER_WAP_PROFILE}"
+                "${MegaCookieView.HEADER_REQUESTED_WITH}, ${MegaCookieView.HEADER_WAP_PROFILE}"
             }).toString(),
             onCheckChange = { userPreferences.removeIdentifyingHeadersEnabled = it }
         )

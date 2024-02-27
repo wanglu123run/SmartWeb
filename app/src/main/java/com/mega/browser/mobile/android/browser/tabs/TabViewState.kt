@@ -1,6 +1,6 @@
 package com.mega.browser.mobile.android.browser.tabs
 
-import com.mega.browser.mobile.android.view.SmartCookieView
+import com.mega.browser.mobile.android.view.MegaCookieView
 import android.graphics.Bitmap
 
 /**
@@ -17,9 +17,9 @@ data class TabViewState(
 )
 
 /**
- * Converts a [SmartCookieView] to a [TabViewState].
+ * Converts a [MegaCookieView] to a [TabViewState].
  */
-fun SmartCookieView.asTabViewState() = TabViewState(
+fun MegaCookieView.asTabViewState() = TabViewState(
     id = id,
     title = title,
     favicon = favicon,

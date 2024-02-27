@@ -379,7 +379,7 @@
 
     <string name="privacy">View Privacy Policy</string>
     <string name="privacy_info">Read the Mega Browser privacy policy</string>
-    <string name="url_project" translatable="false">https://github.com/CookieJarApps/Mega Browser</string>
+<!--    <string name="url_project" translatable="false">https://github.com/CookieJarApps/Mega Browser</string>-->
     <string name="block_malware">Block malicious sites</string>
     <string name="block_sites">Custom site block</string>
     <string name="block_sites_title">Custom site block (separate sites with a comma)</string>
@@ -469,7 +469,7 @@
     <string name="dark_mode">Dark mode</string>
     <string name="submit">Submit extension</string>
 
-    <string name="submit_link" translatable="false">https://cookiejarapps.com/extensions/create.html</string>
+<!--    <string name="submit_link" translatable="false">https://cookiejarapps.com/extensions/create.html</string>-->
 
     <string name="translator">Translator (beta)</string>
     <string name="coming_soon">More coming soon...</string>

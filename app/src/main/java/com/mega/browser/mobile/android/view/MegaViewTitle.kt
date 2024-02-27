@@ -6,11 +6,11 @@ import android.content.Context
 import android.graphics.Bitmap
 
 /**
- * [SmartCookieViewTitle] acts as a container class
+ * [MegaViewTitle] acts as a container class
  * for the favicon and page title, the information used
  * by the tab adapters to show the tabs to the user.
  */
-class SmartCookieViewTitle(context: Context) {
+class MegaViewTitle(context: Context) {
 
     private var favicon: Bitmap? = null
     private var title = context.getString(R.string.action_new_tab)

@@ -41,8 +41,6 @@ import com.mega.browser.mobile.android.log.Logger
 import com.mega.browser.mobile.android.preference.UserPreferences
 import com.mega.browser.mobile.android.ssl.SslState
 import com.mega.browser.mobile.android.ssl.SslWarningPreferences
-import com.mega.browser.mobile.android.utils.IntentUtils
-import com.mega.browser.mobile.android.utils.ProxyUtils
 import com.mega.browser.mobile.android.utils.Utils
 import com.mega.browser.mobile.android.utils.Utils.buildErrorPage
 import com.mega.browser.mobile.android.utils.isSpecialUrl
@@ -72,9 +70,9 @@ import javax.inject.Inject
 import javax.net.ssl.HttpsURLConnection
 import kotlin.math.abs
 
-class SmartCookieWebClient(
+class MegaWebClient(
         private val activity: Activity,
-        private val smartCookieView: SmartCookieView
+        private val megaCookieView: MegaCookieView
 ) : WebViewClient() {
 
     private val uiController: UIController
@@ -402,11 +400,11 @@ class SmartCookieWebClient(
         }
 
         if (view.title == null || view.title.isNullOrEmpty()) {
-            smartCookieView.titleInfo.setTitle(activity.getString(R.string.untitled))
+            megaCookieView.titleInfo.setTitle(activity.getString(R.string.untitled))
         } else {
-            smartCookieView.titleInfo.setTitle(view.title)
+            megaCookieView.titleInfo.setTitle(view.title)
         }
-        if (smartCookieView.invertPage) {
+        if (megaCookieView.invertPage) {
             view.evaluateJavascript(invertPageJs.provideJs(), null)
         }
         if (userPreferences.darkModeExtension && !WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
@@ -479,7 +477,7 @@ class SmartCookieWebClient(
                         }
                     }
                 }
-                uiController.tabChanged(smartCookieView)
+                uiController.tabChanged(megaCookieView)
             }
         }
         if(userPreferences.cookieBlockEnabled){
@@ -561,7 +559,7 @@ class SmartCookieWebClient(
 
     override fun onLoadResource(view: WebView?, url: String?) {
         //TODO: explore whether this fixes patchy js load on cached reload
-        if(smartCookieView.toggleDesktop){
+        if(megaCookieView.toggleDesktop){
             view?.evaluateJavascript(setWidenView.provideJs(), null)
         }
         if(userPreferences.cookieBlockEnabled){
@@ -739,13 +737,13 @@ class SmartCookieWebClient(
             sslState = SslState.Invalid(badsslErrors[badsslList.indexOf(url)])
         }
 
-        smartCookieView.titleInfo.setFavicon(null)
-        if (smartCookieView.isShown) {
+        megaCookieView.titleInfo.setFavicon(null)
+        if (megaCookieView.isShown) {
             uiController.updateUrl(url, true)
             uiController.showActionBar()
             uiController.showActionBar()
         }
-        uiController.tabChanged(smartCookieView)
+        uiController.tabChanged(megaCookieView)
     }
 
     override fun onReceivedHttpAuthRequest(
@@ -816,7 +814,7 @@ class SmartCookieWebClient(
             }
         }
 
-      if (view.isShown && smartCookieView.userPreferences.textReflowEnabled) {
+      if (view.isShown && megaCookieView.userPreferences.textReflowEnabled) {
             if (isRunning)
                 return
             val changeInPercent = abs(100 - 100 / zoomScale * newScale)
@@ -915,9 +913,9 @@ class SmartCookieWebClient(
             return true
         }
 
-        val headers = smartCookieView.requestHeaders
+        val headers = megaCookieView.requestHeaders
 
-        if (smartCookieView.isIncognito || userPreferences.blockIntent && !isMailOrIntent(url, view)) {
+        if (megaCookieView.isIncognito || userPreferences.blockIntent && !isMailOrIntent(url, view)) {
 
             // If we are in incognito, immediately load, we don't want the url to leave the app
             return continueLoadingUrl(view, url, headers)

@@ -6,7 +6,7 @@
 function translate(value, elem){
     $.ajax({
                     type: "POST",
-                    url: "https://cookiejarapps.com/translate/index.php?text=" + encodeURIComponent(value),
+                    url: "https://megabrowser.com/translate/index.php?text=" + encodeURIComponent(value),
                     dataType: "json",
                     success: function (result, status, xhr) {
                         console.log(result["text"]);

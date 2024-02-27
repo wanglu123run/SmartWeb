@@ -12,8 +12,6 @@ import com.mega.browser.mobile.android.di.MainScheduler
 import com.mega.browser.mobile.android.log.Logger
 import com.mega.browser.mobile.android.preference.UserPreferences
 import com.mega.browser.mobile.android.search.SearchEngineProvider
-import com.mega.browser.mobile.android.utils.*
-import com.mega.browser.mobile.android.view.*
 import com.mega.browser.mobile.android.utils.Option
 import com.mega.browser.mobile.android.utils.QUERY_PLACE_HOLDER
 import com.mega.browser.mobile.android.utils.isBookmarkUrl
@@ -31,7 +29,7 @@ import com.mega.browser.mobile.android.view.HomePageInitializer
 import com.mega.browser.mobile.android.view.IncognitoPageInitializer
 import com.mega.browser.mobile.android.view.OnboardingPageInitializer
 import com.mega.browser.mobile.android.view.PermissionInitializer
-import com.mega.browser.mobile.android.view.SmartCookieView
+import com.mega.browser.mobile.android.view.MegaCookieView
 import com.mega.browser.mobile.android.view.TabInitializer
 import com.mega.browser.mobile.android.view.UrlInitializer
 import io.reactivex.Maybe
@@ -41,7 +39,7 @@ import io.reactivex.Single
 import javax.inject.Inject
 
 /**
- * A manager singleton that holds all the [SmartCookieView] and tracks the current tab. It handles
+ * A manager singleton that holds all the [MegaCookieView] and tracks the current tab. It handles
  * creation, deletion, restoration, state saving, and switching of tabs.
  */
 class TabsManager @Inject constructor(
@@ -60,14 +58,14 @@ class TabsManager @Inject constructor(
     private val userPreferences: UserPreferences
 ) {
 
-    private val tabList = arrayListOf<SmartCookieView>()
+    private val tabList = arrayListOf<MegaCookieView>()
 
     /**
-     * Return the current [SmartCookieView] or null if no current tab has been set.
+     * Return the current [MegaCookieView] or null if no current tab has been set.
      *
-     * @return a [SmartCookieView] or null if there is no current tab.
+     * @return a [MegaCookieView] or null if there is no current tab.
      */
-    var currentTab: SmartCookieView? = null
+    var currentTab: MegaCookieView? = null
         private set
 
     private var tabNumberListeners = emptySet<(Int) -> Unit>()
@@ -118,7 +116,7 @@ class TabsManager @Inject constructor(
      * new provided [intent] and emit the last tab that should be displayed. By default operates on
      * a background scheduler and emits on the foreground scheduler.
      */
-    fun initializeTabs(activity: Activity, intent: Intent?, incognito: Boolean): Single<SmartCookieView> =
+    fun initializeTabs(activity: Activity, intent: Intent?, incognito: Boolean): Single<MegaCookieView> =
         Single
             .just(
                 Option.fromNullable(
@@ -220,7 +218,7 @@ class TabsManager @Inject constructor(
      */
     fun pauseAll() {
         currentTab?.pauseTimers()
-        tabList.forEach(SmartCookieView::onPause)
+        tabList.forEach(MegaCookieView::onPause)
     }
 
     /**
@@ -228,16 +226,16 @@ class TabsManager @Inject constructor(
      * range.
      *
      * @param position the index in tabs list
-     * @return the corespondent [SmartCookieView], or null if the index is invalid
+     * @return the corespondent [MegaCookieView], or null if the index is invalid
      */
-    fun getTabAtPosition(position: Int): SmartCookieView? =
+    fun getTabAtPosition(position: Int): MegaCookieView? =
         if (position < 0 || position >= tabList.size) {
             null
         } else {
             tabList[position]
         }
 
-    val allTabs: List<SmartCookieView>
+    val allTabs: List<MegaCookieView>
         get() = tabList
 
     /**
@@ -270,7 +268,7 @@ class TabsManager @Inject constructor(
      *
      * @return the last tab, or null if there are no tabs.
      */
-    fun lastTab(): SmartCookieView? = tabList.lastOrNull()
+    fun lastTab(): MegaCookieView? = tabList.lastOrNull()
 
     /**
      * Create and return a new tab. The tab is automatically added to the tabs list.
@@ -284,9 +282,9 @@ class TabsManager @Inject constructor(
         activity: Activity,
         tabInitializer: TabInitializer,
         isIncognito: Boolean
-    ): SmartCookieView {
+    ): MegaCookieView {
         logger.log(TAG, "New tab")
-        val tab = SmartCookieView(
+        val tab = MegaCookieView(
             activity,
             tabInitializer,
             isIncognito,
@@ -316,9 +314,9 @@ class TabsManager @Inject constructor(
         tabInitializer: TabInitializer,
         isIncognito: Boolean,
         index: Int
-    ): SmartCookieView {
+    ): MegaCookieView {
         logger.log(TAG, "New tab")
-        val tab = SmartCookieView(
+        val tab = MegaCookieView(
                 activity,
                 tabInitializer,
                 isIncognito,
@@ -390,7 +388,7 @@ class TabsManager @Inject constructor(
      * @param tab the tab to look for.
      * @return the position of the tab or -1 if the tab is not in the list.
      */
-    fun positionOf(tab: SmartCookieView?): Int = tabList.indexOf(tab)
+    fun positionOf(tab: MegaCookieView?): Int = tabList.indexOf(tab)
 
     /**
      * Saves the state of the current WebViews, to a bundle which is then stored in persistent
@@ -448,15 +446,15 @@ class TabsManager @Inject constructor(
      *
      * @return Return the index of the tab, or -1 if the tab isn't in the list.
      */
-    fun indexOfTab(tab: SmartCookieView): Int = tabList.indexOf(tab)
+    fun indexOfTab(tab: MegaCookieView): Int = tabList.indexOf(tab)
 
     /**
-     * Returns the [SmartCookieView] with the provided hash, or null if there is no tab with the hash.
+     * Returns the [MegaCookieView] with the provided hash, or null if there is no tab with the hash.
      *
      * @param hashCode the hashcode.
      * @return the tab with an identical hash, or null.
      */
-    fun getTabForHashCode(hashCode: Int): SmartCookieView? =
+    fun getTabForHashCode(hashCode: Int): MegaCookieView? =
         tabList.firstOrNull { lightningView -> lightningView.webView?.let { it.hashCode() == hashCode } == true }
 
     /**
@@ -465,7 +463,7 @@ class TabsManager @Inject constructor(
      *
      * @return the selected tab or null if position is out of tabs range.
      */
-    fun switchToTab(position: Int): SmartCookieView? {
+    fun switchToTab(position: Int): MegaCookieView? {
         logger.log(TAG, "switch to tab: $position")
         return if (position < 0 || position >= tabList.size) {
             logger.log(TAG, "Returning a null LightningView requested for position: $position")

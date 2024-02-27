@@ -9,6 +9,6 @@ import com.mega.browser.mobile.android.R
  */
 class EkoruSearch : BaseSearchEngine(
     "file:///android_asset/ekoru.webp",
-    "https://www.ekoru.org/?ext=smartcookie&q=",
+    "https://www.ekoru.org/?ext=megabrowser&q=",
     R.string.ekoru
 )

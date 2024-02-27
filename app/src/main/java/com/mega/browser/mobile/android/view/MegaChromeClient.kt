@@ -30,9 +30,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.Scheduler
 import javax.inject.Inject
 
-class SmartCookieChromeClient(
+class MegaChromeClient(
         private val activity: Activity,
-        private val smartCookieView: SmartCookieView
+        private val megaCookieView: MegaCookieView
 ) : WebChromeClient(), WebRtcPermissionsView {
 
     private val geoLocationPermissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -49,14 +49,14 @@ class SmartCookieChromeClient(
     }
 
     override fun onProgressChanged(view: WebView, newProgress: Int) {
-        if (smartCookieView.isShown) {
+        if (megaCookieView.isShown) {
             uiController.updateProgress(newProgress)
         }
     }
 
     override fun onReceivedIcon(view: WebView, icon: Bitmap) {
-        smartCookieView.titleInfo.setFavicon(icon)
-        uiController.tabChanged(smartCookieView)
+        megaCookieView.titleInfo.setFavicon(icon)
+        uiController.tabChanged(megaCookieView)
         cacheFavicon(view.url, icon)
     }
 
@@ -78,11 +78,11 @@ class SmartCookieChromeClient(
 
     override fun onReceivedTitle(view: WebView?, title: String?) {
         if (title?.isNotEmpty() == true) {
-            smartCookieView.titleInfo.setTitle(title)
+            megaCookieView.titleInfo.setTitle(title)
         } else {
-            smartCookieView.titleInfo.setTitle(activity.getString(R.string.untitled))
+            megaCookieView.titleInfo.setTitle(activity.getString(R.string.untitled))
         }
-        uiController.tabChanged(smartCookieView)
+        uiController.tabChanged(megaCookieView)
         if (view != null && view.url != null) {
             uiController.updateHistory(title, view.url.orEmpty())
         }
@@ -166,7 +166,7 @@ class SmartCookieChromeClient(
         return true
     }
 
-    override fun onCloseWindow(window: WebView) = uiController.onCloseWindow(smartCookieView)
+    override fun onCloseWindow(window: WebView) = uiController.onCloseWindow(megaCookieView)
 
     @Suppress("unused", "UNUSED_PARAMETER")
     fun openFileChooser(uploadMsg: ValueCallback<Uri>) = uiController.openFileChooser(uploadMsg)
