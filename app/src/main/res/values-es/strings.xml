@@ -353,7 +353,7 @@
     <string name="error_reload">Recargar</string>
     <string name="https_title">¡Oh migajas! &lt;br&gt; Ese sitio no es compatible con HTTPS y el bloqueo de HTTP está habilitado.</string>
     <string name="malware_title">¡Oh migajas! &lt;br&gt; Ese sitio parece ser malware.</string>
-    <string name="malware_message">Póngase en contacto con support@cookiegames.co.uk si esto es un error.</string>
+    <string name="malware_message">Póngase en contacto con support@www.megabrowser.com si esto es un error.</string>
     <string name="blocked_title">¡Oh migajas! &lt;br&gt; Ese sitio ha sido bloqueado en la configuración.</string>
     <string name="close_app">Cerrar navegador</string>
     <string name="enter_password">Introducir la contraseña</string>

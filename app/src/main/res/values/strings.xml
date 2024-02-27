@@ -109,7 +109,7 @@
     <string name="action_manual">Manual</string>
     <string name="action_auto">Auto</string>
     <string name="action_follow_me">More info</string>
-    <string name="url_insta" translatable="false">https://www.cookiegames.co.uk</string>
+    <string name="url_insta" translatable="false">https://www.megabrowser.com</string>
     <string name="clear_cache">Clear cache</string>
     <string name="message_cache_cleared">Cache cleared</string>
     <string name="message_import">Bookmarks were imported</string>
@@ -290,7 +290,7 @@
     <string name="scw">Mega Browser Source Code</string>
     <string name="action_home">Home</string>
     <string name="description">Learn about Mega Browser</string>
-    <string name="url_contact" translatable="false">www.cookiegames.co.uk/</string>
+    <string name="url_contact" translatable="false">www.megabrowser.com/</string>
 
     <string name="faq">FAQ</string>
     <string name="faq_description">Frequently asked questions...</string>
@@ -406,7 +406,7 @@
     <string name="https_title">Oh crumbs! &lt;br&gt; That site doesn\'t support HTTPS and block HTTP is enabled.</string>
 
     <string name="malware_title">Oh crumbs! &lt;br&gt; That site appears to be malware.</string>
-    <string name="malware_message">Contact support@cookiegames.co.uk if this is a mistake.</string>
+    <string name="malware_message">Contact support@www.megabrowser.com if this is a mistake.</string>
 
     <string name="blocked_title">Oh crumbs! &lt;br&gt; That site has been blocked in settings.</string>
     <string name="close_app">Close browser</string>

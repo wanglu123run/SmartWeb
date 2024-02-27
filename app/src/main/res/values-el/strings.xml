@@ -355,7 +355,7 @@
     <string name="error_reload">Φορτώνω πάλι</string>
     <string name="https_title">Ω ψίχουλα! &lt;br&gt; Αυτός ο ιστότοπος δεν υποστηρίζει το HTTPS και το μπλοκ HTTP είναι ενεργοποιημένο.</string>
     <string name="malware_title">Ω ψίχουλα! &lt;br&gt; Αυτός ο ιστότοπος φαίνεται να είναι κακόβουλο λογισμικό.</string>
-    <string name="malware_message">Επικοινωνήστε με την υποστήριξη@cookiegames.co.uk εάν αυτό είναι λάθος.</string>
+    <string name="malware_message">Επικοινωνήστε με την υποστήριξη@www.megabrowser.com εάν αυτό είναι λάθος.</string>
     <string name="blocked_title">Ω ψίχουλα! &lt;br&gt; Αυτός ο ιστότοπος έχει αποκλειστεί στις ρυθμίσεις.</string>
     <string name="close_app">Κλείσιμο προγράμματος περιήγησης</string>
     <string name="enter_password">Εισάγετε τον κωδικό πρόσβασης</string>

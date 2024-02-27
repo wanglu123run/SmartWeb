@@ -355,7 +355,7 @@
     <string name="error_reload">vernieuwen</string>
     <string name="https_title">Oh kruimels! &lt;br&gt; Die site ondersteunt HTTPS niet en HTTP blokkeren is ingeschakeld.</string>
     <string name="malware_title">Oh kruimels! &lt;br&gt; Die site lijkt malware te zijn.</string>
-    <string name="malware_message">Neem contact op met support@cookiegames.co.uk als dit een vergissing is.</string>
+    <string name="malware_message">Neem contact op met support@www.megabrowser.com als dit een vergissing is.</string>
     <string name="blocked_title">Oh kruimels! &lt;br&gt; Die site is geblokkeerd in de instellingen.</string>
     <string name="close_app">Browser sluiten</string>
     <string name="enter_password">Voer wachtwoord in</string>

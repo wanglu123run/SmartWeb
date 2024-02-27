@@ -368,7 +368,7 @@
     <string name="error_reload">إعادة تحميل</string>
     <string name="https_title">أوه! &lt;br&gt; هذا الموقع لا يدعم HTTPS وحظر HTTP مفعل.</string>
     <string name="malware_title">يا إلهي! &lt;br&gt; هذا الموقع يبدو وكأنه برامج ضارة.</string>
-    <string name="malware_message">تواصل مع support@cookiegames.co.uk إذا كان هذا خطأ.</string>
+    <string name="malware_message">تواصل مع support@www.megabrowser.com إذا كان هذا خطأ.</string>
     <string name="blocked_title">أوه! &lt;br&gt; تم حظر هذا الموقع في الإعدادات.</string>
     <string name="close_app">إغلاق المتصفح</string>
     <string name="enter_password">أدخل كلمة المرور</string>

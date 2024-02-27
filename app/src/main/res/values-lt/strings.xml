@@ -358,7 +358,7 @@
     <string name="error_reload">Perkrauti iš naujo</string>
     <string name="https_title">O trupiniai! &lt;br&gt; Ši svetainė nepalaiko HTTPS ir įgalinta HTTP blokavimas.</string>
     <string name="malware_title">O trupiniai! &lt;br&gt; Atrodo, kad šioje svetainėje yra kenkėjiškų programų.</string>
-    <string name="malware_message">Jei tai klaida, susisiekite su support@cookiegames.co.uk.</string>
+    <string name="malware_message">Jei tai klaida, susisiekite su support@www.megabrowser.com.</string>
     <string name="blocked_title">O trupiniai! &lt;br&gt; Svetainės nustatymai buvo užblokuoti.</string>
     <string name="close_app">Uždaryti naršyklę</string>
     <string name="enter_password">Įvesti slaptažodį</string>

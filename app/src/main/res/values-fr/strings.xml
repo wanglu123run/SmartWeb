@@ -364,7 +364,7 @@
     <string name="error_reload">Recharger</string>
     <string name="https_title">Miettes alors ! &lt;br&gt; Ce site n’offre pas de connexion HTTPS, et vous avez bloqué les sites HTTP.</string>
     <string name="malware_title">Miettes alors ! &lt;br&gt; Ce site semble être un malware.</string>
-    <string name="malware_message">S’il s’agit d’une erreur, veuillez le signaler à support@cookiegames.co.uk (en anglais)</string>
+    <string name="malware_message">S’il s’agit d’une erreur, veuillez le signaler à support@www.megabrowser.com (en anglais)</string>
     <string name="blocked_title">Miettes alors ! &lt;br&gt; Ce site est bloqué dans les paramètres.</string>
     <string name="close_app">Fermer le navigateur</string>
     <string name="enter_password">Entrer le mot de passe</string>

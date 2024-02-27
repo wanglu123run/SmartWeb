@@ -367,7 +367,7 @@
     <string name="error_reload">Yeniden yükle</string>
     <string name="https_title">Hay aksi! &lt;br&gt; Bu site HTTPS\'yi desteklemiyor ve HTTP engelleme etkinleştirildi.</string>
     <string name="malware_title">Hay aksi! &lt;br&gt; Bu sitenin kötü amaçlı yazılım olduğu anlaşılıyor.</string>
-    <string name="malware_message">Bu bir hata ise support@cookiegames.co.uk ile iletişime geçin.</string>
+    <string name="malware_message">Bu bir hata ise support@www.megabrowser.com ile iletişime geçin.</string>
     <string name="blocked_title">Hay aksi! &lt;br&gt; Bu site ayarlarda engellendi.</string>
     <string name="close_app">Tarayıcıyı kapat</string>
     <string name="enter_password">Parola Gir</string>

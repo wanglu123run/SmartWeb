@@ -366,7 +366,7 @@
     <string name="error_reload">Обновить</string>
     <string name="https_title">О нет! &lt;br&gt; Этот сайт не поддерживает HTTPS и блокирует HTTP.</string>
     <string name="malware_title">О, крошки! &lt;br&gt; Этот сайт выглядит как вредоносный.</string>
-    <string name="malware_message">Свяжитесь через support@cookiegames.co.uk, если это ошибка.</string>
+    <string name="malware_message">Свяжитесь через support@www.megabrowser.com, если это ошибка.</string>
     <string name="blocked_title">О нет! &lt;br&gt; Этот сайт был заблокирован в настройках.</string>
     <string name="close_app">Закрыть браузер</string>
     <string name="enter_password">Введите пароль</string>

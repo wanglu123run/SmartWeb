@@ -344,7 +344,7 @@
     <string name="error_reload">リロード</string>
     <string name="https_title">パンくず！ &lt;br&gt;そのサイトはHTTPSをサポートしておらず、HTTPのブロックが有効になっています。</string>
     <string name="malware_title">パンくず！ &lt;br&gt;そのサイトはマルウェアのようです。</string>
-    <string name="malware_message">これが間違いである場合は、support @ cookiegames.co.ukにお問い合わせください。</string>
+    <string name="malware_message">これが間違いである場合は、support @ www.megabrowser.comにお問い合わせください。</string>
     <string name="blocked_title">パンくず！ &lt;br&gt;そのサイトは設定でブロックされています。</string>
     <string name="close_app">ブラウザを閉じる</string>
     <string name="enter_password">パスワードを入力する</string>

@@ -381,7 +381,7 @@
     <string name="https_title">הו פירורים! &lt;br&gt; אתר זה אינו תומך ב- HTTPS וחסימה של HTTP מופעלת.</string>
 
     <string name="malware_title">הו פירורים! &lt;br&gt; נראה כי אתר זה הוא תוכנה זדונית.</string>
-    <string name="malware_message">צור קשר עם support@cookiegames.co.uk אם זו טעות.</string>
+    <string name="malware_message">צור קשר עם support@www.megabrowser.com אם זו טעות.</string>
 
     <string name="blocked_title">הו פירורים! &lt;br&gt; אתר זה נחסם בהגדרות.</string>
     <string name="close_app">סגור את הדפדפן</string>

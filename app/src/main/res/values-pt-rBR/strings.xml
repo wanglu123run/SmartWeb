@@ -364,7 +364,7 @@
     <string name="error_reload">Recarregar</string>
     <string name="https_title">&lt;br&gt; O site não tem suporte a HTTPS e o acesso a sites HTTP está bloqueado.</string>
     <string name="malware_title">&lt;br&gt; Parece que este site tem malware.</string>
-    <string name="malware_message">Entre em contato com support@cookiegames.co.uk se isso for um erro.</string>
+    <string name="malware_message">Entre em contato com support@www.megabrowser.com se isso for um erro.</string>
     <string name="blocked_title">&lt;br&gt; Este site está bloqueado nas configurações.</string>
     <string name="close_app">Fechar navegador</string>
     <string name="enter_password">Digitar senha</string>
