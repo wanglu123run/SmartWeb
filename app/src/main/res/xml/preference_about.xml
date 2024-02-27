@@ -4,18 +4,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory android:title="@string/settings_about">
-        <Preference
-            app:isPreferenceVisible="false"
-            android:summary="@string/url_project"
-            android:title="@string/more">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/CookieJarApps/SmartCookieWeb">
-                <extra
-                    android:name="SOURCE"
-                    android:value="SELF" />
-            </intent>
-        </Preference>
+<!--        <Preference-->
+<!--            app:isPreferenceVisible="false"-->
+<!--            android:summary="@string/url_project"-->
+<!--            android:title="@string/more">-->
+<!--            <intent-->
+<!--                android:action="android.intent.action.VIEW"-->
+<!--                android:data="https://github.com/CookieJarApps/Mega Browser">-->
+<!--                <extra-->
+<!--                    android:name="SOURCE"-->
+<!--                    android:value="SELF" />-->
+<!--            </intent>-->
+<!--        </Preference>-->
         <Preference
             android:key="pref_version"
             android:title="@string/version" />

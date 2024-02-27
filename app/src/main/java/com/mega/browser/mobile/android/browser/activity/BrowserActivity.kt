@@ -400,9 +400,9 @@ abstract class BrowserActivity : ThemableBrowserActivity(), BrowserView, UIContr
         setSupportActionBar(toolbar)
         val actionBar = requireNotNull(supportActionBar)
 
-        if(userPreferences.translationEndpoint == "https://cookiejarapps.com/translate/"){
-            userPreferences.translationEndpoint = "https://smartcookieweb.com/translate/"
-        }
+//        if(userPreferences.translationEndpoint == "https://cookiejarapps.com/translate/"){
+//            userPreferences.translationEndpoint = "https://smartcookieweb.com/translate/"
+//        }
 
         if(userPreferences.firstLaunch){
             startActivity(Intent(this, Onboarding::class.java))
@@ -2254,8 +2254,8 @@ abstract class BrowserActivity : ThemableBrowserActivity(), BrowserView, UIContr
                     putExtra(Intent.EXTRA_TEXT, currentTab.url)
                     type = "text/plain"
                 }
-                sendIntent.setClassName("com.cookiejarapps.smartcookieweb_ytdl",
-                        "com.cookiejarapps.smartcookieweb_ytdl.MainActivity")
+                sendIntent.setClassName("com.mega.browser.mobile.android_ytdl",
+                        "com.mega.browser.mobile.android_ytdl.MainActivity")
 
                 val shareIntent = Intent.createChooser(sendIntent, null)
                 startActivity(shareIntent)

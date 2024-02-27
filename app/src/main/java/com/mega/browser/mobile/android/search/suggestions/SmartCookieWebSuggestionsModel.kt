@@ -29,7 +29,7 @@ class SmartCookieWebSuggestionsModel(
     // https://smartcookieweb.com/autocomplete.php?query={query}
     override fun createQueryUrl(query: String, language: String): HttpUrl = HttpUrl.Builder()
             .scheme("https")
-            .host("smartcookieweb.com")
+            .host("megabrowser.com")
             .encodedPath("/autocomplete.php")
             .addEncodedQueryParameter("query", query)
             .build()

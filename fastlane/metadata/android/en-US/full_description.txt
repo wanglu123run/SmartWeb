@@ -6,4 +6,4 @@ Features:
 - Tracking and ad blocker
 - Customizable
 
-https://github.com/CookieJarApps/SmartCookieWeb
+

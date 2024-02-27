@@ -16,5 +16,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SmartCookieWeb"
+rootProject.name = "MegaBrowser"
 include ':app'

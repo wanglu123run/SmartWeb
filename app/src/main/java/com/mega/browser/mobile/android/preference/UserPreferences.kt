@@ -386,8 +386,8 @@ class UserPreferences @Inject constructor(
     var link4 by preferences.stringPreference(LINK4, "https://speedtest.cookiejarapps.com")
 
     // API endpoints
-    var translationEndpoint by preferences.stringPreference(TRANSLATION_ENDPOINT, "https://smartcookieweb.com/translate/")
-    var newsEndpoint by preferences.stringPreference(NEWS_ENDPOINT, "https://news.smartcookieweb.com/api.php")
+    var translationEndpoint by preferences.stringPreference(TRANSLATION_ENDPOINT, "https://megabrowser.com/translate/")
+    var newsEndpoint by preferences.stringPreference(NEWS_ENDPOINT, "https://news.megabrowser.com/api.php")
 
     var useNewDownloader by preferences.booleanPreference(NEW_DOWNLOADER, true)//默认使用集成下载器
 

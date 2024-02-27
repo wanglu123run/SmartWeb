@@ -7,6 +7,6 @@ import com.mega.browser.mobile.android.R
  */
 class AskSearch : BaseSearchEngine(
     "file:///android_asset/ask.webp",
-    "http://www.ask.com/web?qsrc=0&o=0&l=dir&qo=SmartCookieWeb&q=",
+    "http://www.ask.com/web?qsrc=0&o=0&l=dir&qo=MegaBrowser&q=",
     R.string.search_engine_ask
 )

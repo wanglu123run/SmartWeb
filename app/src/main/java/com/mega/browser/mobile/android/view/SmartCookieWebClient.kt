@@ -268,7 +268,7 @@ class SmartCookieWebClient(
                 .subscribeOn(databaseScheduler)
                 .subscribe { aBoolean: Boolean? ->
                     if (!aBoolean!!) {
-                        logger.log("SmartCookieWebClient", "error saving script to database")
+                        logger.log("MegaBrowserClient", "error saving script to database")
                     }
                 }
     }
@@ -1002,7 +1002,7 @@ class SmartCookieWebClient(
                 try {
                     activity.startActivity(intent)
                 } catch (e: Exception) {
-                    println("SmartCookieWebClient: cannot open downloaded file")
+                    println("MegaBrowserClient: cannot open downloaded file")
                 }
 
             } else {
@@ -1040,7 +1040,7 @@ class SmartCookieWebClient(
 
     companion object {
 
-        private const val TAG = "SmartCookieWebClient"
+        private const val TAG = "MegaBrowserClient"
 
     }
 }

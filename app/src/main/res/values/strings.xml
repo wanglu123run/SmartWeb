@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <string name="app_lightning" translatable="false">Lightning</string>
-    <string name="ytdl_package_name" translatable="false">com.cookiejarapps.smartcookieweb_ytdl</string>
+    <string name="ytdl_package_name" translatable="false">com.mega.browser.mobile.android_ytdl</string>
     <string name="app_desc">A free and open source web browser that blocks ads and trackers</string>
     <string name="action_new_tab">New tab</string>
     <string name="action_share">Share</string>
@@ -287,9 +287,9 @@
     <string name="message_open_download_fail">This file doesn\'t exist anymore</string>
     <string name="this_project">This Project</string>
 
-    <string name="scw">SmartCookieWeb Source Code</string>
+    <string name="scw">Mega Browser Source Code</string>
     <string name="action_home">Home</string>
-    <string name="description">Learn about SmartCookieWeb</string>
+    <string name="description">Learn about Mega Browser</string>
     <string name="url_contact" translatable="false">www.cookiegames.co.uk/</string>
 
     <string name="faq">FAQ</string>
@@ -378,8 +378,8 @@
     <string name="search_engine_searx_cookiejarapps">CookieJarApps SearX</string>
 
     <string name="privacy">View Privacy Policy</string>
-    <string name="privacy_info">Read the SmartCookieWeb privacy policy</string>
-    <string name="url_project" translatable="false">https://github.com/CookieJarApps/SmartCookieWeb</string>
+    <string name="privacy_info">Read the Mega Browser privacy policy</string>
+    <string name="url_project" translatable="false">https://github.com/CookieJarApps/Mega Browser</string>
     <string name="block_malware">Block malicious sites</string>
     <string name="block_sites">Custom site block</string>
     <string name="block_sites_title">Custom site block (separate sites with a comma)</string>
@@ -497,7 +497,7 @@
     <string name="listed_javascript">Only allow JavaScript for listed sites</string>
 
     <string name="confirm">Confirm reset</string>
-    <string name="clear">This will clear all the data stored by SmartCookieWeb on your device</string>
+    <string name="clear">This will clear all the data stored by Mega Browser on your device</string>
 
     <string name="only_clear">Only clear on browser session end</string>
     <string name="only_clear_summary">Only clear above options when all browser tabs have been closed, instead of whenever the app is exited</string>
@@ -526,7 +526,7 @@
     <string name="download_to_sd">Download to SD card</string>
 
     <string name="legacy_download_manager">Use integrated download manager</string>
-    <string name="legacy_download_manager_desc">Download files using the SmartCookieWeb download manager, instead of the system one</string>
+    <string name="legacy_download_manager_desc">Download files using the Mega Browser download manager, instead of the system one</string>
 
     <string name="onboarding_one">Access settings, bookmarks (or swipe from the right edge) and more in the overflow menu.</string>
     <string name="onboarding_two">Click the tab number or swipe from the left edge to open the tab drawer.</string>
@@ -636,7 +636,7 @@
     <string name="stack_items_reverse">Stack items from bottom of drawer</string>
 
     <string name="forgot_password">Forgot password</string>
-    <string name="recover_app_lock">Please visit <a href="https://smartcookieweb.com/recover.php">smartcookieweb.com/recover.php</a> in another browser to recover your app lock password.</string>
+    <string name="recover_app_lock">Please visit <a href="https://megabrowser.com/recover.php">megabrowser.com/recover.php</a> in another browser to recover your app lock password.</string>
 
     <string name="webview_devtools">WebView DevTools</string>
 
