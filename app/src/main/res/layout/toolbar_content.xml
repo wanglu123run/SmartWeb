@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
-        <com.cookiegames.smartcookie.icon.TabCountView
+        <com.mega.browser.mobile.android.icon.TabCountView
             android:id="@+id/tab_count_view"
             android:layout_width="@dimen/material_grid_small_icon"
             android:layout_height="@dimen/material_grid_small_icon"

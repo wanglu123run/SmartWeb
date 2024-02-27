@@ -2,58 +2,58 @@
 <androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.preference.Preference
-        android:fragment="com.cookiegames.smartcookie.settings.fragment.GeneralSettingsFragment"
+        android:fragment="com.mega.browser.mobile.android.settings.fragment.GeneralSettingsFragment"
         android:icon="@drawable/ic_settings_general_layers"
         android:title="@string/settings_general"
         android:singleLineTitle="false"
         android:summary="@string/settings_general_explain"
         android:tint="#8e4f00"/>
     <androidx.preference.Preference
-        android:fragment="com.cookiegames.smartcookie.settings.fragment.ExportSettingsFragment"
+        android:fragment="com.mega.browser.mobile.android.settings.fragment.ExportSettingsFragment"
         android:icon="@drawable/ic_settings_import_export_layers"
         android:singleLineTitle="false"
         android:title="@string/import_export"
         android:summary="@string/settings_bookmark_explain" />
     <androidx.preference.Preference
-        android:fragment="com.cookiegames.smartcookie.settings.fragment.DisplaySettingsFragment"
+        android:fragment="com.mega.browser.mobile.android.settings.fragment.DisplaySettingsFragment"
         android:icon="@drawable/ic_settings_customize_layers"
         android:singleLineTitle="false"
         android:title="@string/customize"
         android:summary="@string/settings_display_explain"
         android:tint="#8e4f00"/>
     <androidx.preference.Preference
-        android:fragment="com.cookiegames.smartcookie.settings.fragment.PrivacySettingsFragment"
+        android:fragment="com.mega.browser.mobile.android.settings.fragment.PrivacySettingsFragment"
         android:icon="@drawable/ic_settings_shield_layers"
         android:singleLineTitle="false"
         android:title="@string/settings_privacy"
         android:summary="@string/settings_privacy_explain" />
     <androidx.preference.Preference
-        android:fragment="com.cookiegames.smartcookie.settings.fragment.AdvancedSettingsFragment"
+        android:fragment="com.mega.browser.mobile.android.settings.fragment.AdvancedSettingsFragment"
         android:icon="@drawable/ic_settings_advanced_layers"
         android:title="@string/settings_advanced"
         android:singleLineTitle="false"
         android:summary="@string/settings_advanced_explain" />
     <androidx.preference.Preference
-        android:fragment="com.cookiegames.smartcookie.settings.fragment.AdBlockSettingsFragment"
+        android:fragment="com.mega.browser.mobile.android.settings.fragment.AdBlockSettingsFragment"
         android:icon="@drawable/ic_settings_block_layers"
         android:singleLineTitle="false"
         android:title="@string/settings_adblock"
         android:summary="@string/adblock_summary"/>
     <androidx.preference.Preference
-        android:fragment="com.cookiegames.smartcookie.settings.fragment.ParentalControlSettingsFragment"
+        android:fragment="com.mega.browser.mobile.android.settings.fragment.ParentalControlSettingsFragment"
         android:icon="@drawable/ic_settings_parental_controls_layers"
         android:singleLineTitle="false"
         android:title="@string/parental_controls"
         android:summary="@string/settings_parents" />
    <androidx.preference.Preference
-        android:fragment="com.cookiegames.smartcookie.settings.fragment.ExtensionsSettingsFragment"
+        android:fragment="com.mega.browser.mobile.android.settings.fragment.ExtensionsSettingsFragment"
         android:icon="@drawable/ic_settings_extensions_layers"
         android:title="@string/extensions"
        app:isPreferenceVisible="false"
        android:singleLineTitle="false"
        android:summary="@string/extensions_description" />
     <androidx.preference.Preference
-        android:fragment="com.cookiegames.smartcookie.settings.fragment.AboutSettingsFragment"
+        android:fragment="com.mega.browser.mobile.android.settings.fragment.AboutSettingsFragment"
         android:icon="@drawable/ic_settings_about_layers"
         android:singleLineTitle="false"
         android:summary="@string/settings_about_explain"

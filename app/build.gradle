@@ -85,11 +85,11 @@ jacoco {
 
 
 dependencies {
-    testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.mockito:mockito-core:3.11.2'
-    testImplementation 'com.nhaarman:mockito-kotlin:1.6.0', {
-        exclude group: 'org.jetbrains.kotlin'
-    }
+//    testImplementation 'junit:junit:4.13.2'
+//    testImplementation 'org.mockito:mockito-core:3.11.2'
+//    testImplementation 'com.nhaarman:mockito-kotlin:1.6.0', {
+//        exclude group: 'org.jetbrains.kotlin'
+//    }
 
     // support libraries
     implementation "androidx.palette:palette-ktx:1.0.0"
@@ -107,9 +107,9 @@ dependencies {
 //    implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation 'androidx.test:rules:1.5.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+//    androidTestImplementation 'androidx.test:rules:1.5.0'
+//    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
 
     //https://github.com/anthonycr/Mezzanine
     implementation "com.anthonycr.mezzanine:mezzanine:1.1.1"

@@ -11,9 +11,9 @@
 -keep public class * extends android.content.ContentProvider
 -keep public class * extends android.app.backup.BackupAgentHelper
 -keep public class * extends android.preference.Preference
--keep public class com.cookiegames.smartcookie.settings.*
--keep public class com.cookiegames.smartcookie.settings.fragment.*
--keep public class com.cookiegames.smartcookie.reading.*
+-keep public class com.mega.browser.mobile.android.settings.*
+-keep public class com.mega.browser.mobile.android.settings.fragment.*
+-keep public class com.mega.browser.mobile.android.reading.*
 
 -assumenosideeffects class android.util.Log {
     public static *** d(...);
@@ -33,7 +33,7 @@
 }
 
 # Without this rule, openFileChooser does not get called on KitKat
--keep class com.cookiegames.smartcookie.view.SmartCookieChromeClient {
+-keep class com.mega.browser.mobile.android.view.SmartCookieChromeClient {
     void openFileChooser(android.webkit.ValueCallback);
     void openFileChooser(android.webkit.ValueCallback, java.lang.String);
     void openFileChooser(android.webkit.ValueCallback, java.lang.String, java.lang.String);

@@ -2,17 +2,17 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/app_elements">
         <androidx.preference.Preference
-            android:fragment="com.cookiegames.smartcookie.settings.fragment.ThemeSettingsFragment"
+            android:fragment="com.mega.browser.mobile.android.settings.fragment.ThemeSettingsFragment"
             android:icon="@drawable/ic_settings_theme_layers"
             android:title="@string/theme_settings"
             android:singleLineTitle="false"/>
         <androidx.preference.Preference
-            android:fragment="com.cookiegames.smartcookie.settings.fragment.HomepageSettingsFragment"
+            android:fragment="com.mega.browser.mobile.android.settings.fragment.HomepageSettingsFragment"
             android:icon="@drawable/ic_settings_homepage_layers"
             android:title="@string/homepage_settings"
             android:singleLineTitle="false"/>
         <androidx.preference.Preference
-            android:fragment="com.cookiegames.smartcookie.settings.fragment.DrawerSettingsFragment"
+            android:fragment="com.mega.browser.mobile.android.settings.fragment.DrawerSettingsFragment"
             android:icon="@drawable/ic_settings_drawers_layers"
             android:title="@string/drawer_settings"
             android:singleLineTitle="false"/>

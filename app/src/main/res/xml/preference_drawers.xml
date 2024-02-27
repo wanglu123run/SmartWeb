@@ -25,7 +25,7 @@
             android:singleLineTitle="false"
             android:title="@string/drawer_size"/>
         <androidx.preference.Preference
-            android:fragment="com.cookiegames.smartcookie.settings.fragment.DrawerOffsetFragment"
+            android:fragment="com.mega.browser.mobile.android.settings.fragment.DrawerOffsetFragment"
             android:singleLineTitle="false"
             android:title="@string/drawer_item_offset" />
     </PreferenceCategory>
