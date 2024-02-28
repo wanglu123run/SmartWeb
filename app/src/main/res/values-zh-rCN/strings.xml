@@ -526,4 +526,8 @@
     <string name="forgot_password">忘记密码</string>
     <string name="recover_app_lock">请在另一个浏览器中访问 <a href="https://megabrowser.com/recover.php">megabrowser.com/recover.php</a>来恢复你的应用锁定密码</string>
     <!-- finish pages -->
+
+<!--    <string name="app_desc_new">一款免费的网络浏览器，阻止广告和跟踪器</string>-->
+
+<!--    <string name="app_agreement_desc">打开下面的链接并仔细阅读条款，点击 √ 表示你同意隐私协议与隐私政策。</string>-->
 </resources>

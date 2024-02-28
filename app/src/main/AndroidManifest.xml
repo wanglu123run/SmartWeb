@@ -198,6 +198,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".onboarding.WebViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LightTheme">
+        </activity>
         <activity
             android:name="com.mega.browser.mobile.android.reading.activity.ReadingActivity"
             android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden|keyboard"

@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -79,8 +80,21 @@ class NavbarChoiceFragment : Fragment() {
                 R.id.fullTabs -> userPreferences.showTabsInDrawer = false
             }
         }
-
-
+        requireView().findViewById<ImageView>(R.id.top_defaultNavbar).setOnClickListener {
+            rGroup.check(R.id.defaultNavbar)
+        }
+        requireView().findViewById<ImageView>(R.id.both_defaultNavbar2nd).setOnClickListener {
+            rGroup.check(R.id.defaultNavbar2nd)
+        }
+        requireView().findViewById<ImageView>(R.id.bottom_bottomNavbar).setOnClickListener {
+            rGroup.check(R.id.bottomNavbar)
+        }
+        requireView().findViewById<ImageView>(R.id.drawer_defaultTabs).setOnClickListener {
+            rGroup2.check(R.id.defaultTabs)
+        }
+        requireView().findViewById<ImageView>(R.id.strip_fullTabs).setOnClickListener {
+            rGroup2.check(R.id.fullTabs)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

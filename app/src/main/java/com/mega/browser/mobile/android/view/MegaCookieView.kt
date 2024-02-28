@@ -254,7 +254,7 @@ class MegaCookieView(
 
         if(userPreferences.firstLaunch){
             loadOnboardingPage()
-            userPreferences.firstLaunch = false
+//            userPreferences.firstLaunch = false
         }
     }
 

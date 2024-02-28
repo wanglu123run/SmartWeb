@@ -401,7 +401,7 @@ abstract class BrowserActivity : ThemableBrowserActivity(), BrowserView, UIContr
 
         if(userPreferences.firstLaunch){
             startActivity(Intent(this, Onboarding::class.java))
-            userPreferences.firstLaunch = false
+//            userPreferences.firstLaunch = false
             finish()
         }
 

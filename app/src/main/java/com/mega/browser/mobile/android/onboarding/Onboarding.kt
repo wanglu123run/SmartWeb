@@ -63,24 +63,27 @@ class Onboarding : AppIntro2(){
         val a = TypedValue()
         theme.resolveAttribute(android.R.attr.windowBackground, a, true)
 
-        addSlide(
-            createInstance(
-                title = resources.getString(R.string.app_name),
-                description = resources.getString(R.string.app_desc),
-                imageDrawable = R.drawable.slide1,
-                backgroundColorRes = col,
-                titleColorRes = textCol,
-                descriptionColorRes = textCol
-            )
-        )
+//        addSlide(
+//            createInstance(
+//                title = resources.getString(R.string.app_name),
+//                description = resources.getString(R.string.app_desc),
+//                imageDrawable = R.drawable.slide1,
+//                backgroundColorRes = col,
+//                titleColorRes = textCol,
+//                descriptionColorRes = textCol
+//            )
+//        )
 
-        addSlide(PermsFragment.newInstance())
+//        addSlide(PermsFragment.newInstance())
 
-        addSlide(SearchEngineFragment.newInstance())
+//        addSlide(SearchEngineFragment.newInstance())
 
-        addSlide(ThemeChoiceFragment.newInstance())
+//        addSlide(ThemeChoiceFragment.newInstance())
+
 
         addSlide(NavbarChoiceFragment.newInstance())
+
+        addSlide(StartFragment.newInstance())
 
 //        askForPermissions(
 //                permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE),
@@ -108,6 +111,7 @@ class Onboarding : AppIntro2(){
     override fun onDonePressed(currentFragment: Fragment?) {
         super.onDonePressed(currentFragment)
         // Decide what to do when the user clicks on "Done"
+        userPreferences.firstLaunch = false
         main()
         finish()
     }

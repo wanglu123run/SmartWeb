@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/appintro_statusbar_height"
+    android:paddingBottom="@dimen/appintro2_bottombar_height"
+    tools:background="@color/white">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/AppIntroDefaultHeading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
+
+    <TextView
+        android:id="@+id/description"
+        style="@style/AppIntroDefaultText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_desc_new"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_weight="1" />
+
+    <ImageView
+        android:id="@+id/image"
+        style="@style/AppIntroDefaultImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/app_intro_image_content_description"
+        android:src="@drawable/slide1"
+        app:layout_constraintBottom_toTopOf="@+id/agreement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_weight="4" />
+
+    <TextView
+        android:id="@+id/agreement"
+        style="@style/AppIntroDefaultText"
+        android:textSize="15sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/app_agreement_desc"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        app:layout_constraintBottom_toTopOf="@+id/service_agreement"
+        app:layout_constraintVertical_weight="1" />
+
+
+    <TextView
+        android:id="@+id/service_agreement"
+        app:layout_constraintTop_toBottomOf="@+id/agreement"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/privacy_agreement"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/terms_of_service"
+        android:textColor="#0000FF"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/privacy_agreement"
+        app:layout_constraintTop_toTopOf="@+id/service_agreement"
+        app:layout_constraintBottom_toBottomOf="@+id/service_agreement"
+        app:layout_constraintStart_toEndOf="@+id/service_agreement"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="3dp"
+        android:text="@string/privacy_policy"
+        android:textColor="#0000FF"
+        android:textSize="12sp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
