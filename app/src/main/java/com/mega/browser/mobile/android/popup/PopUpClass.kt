@@ -158,7 +158,7 @@ class PopUpClass {
         val menu = mutableListOf(
                 MenuDividerClass(),
                 MenuItemClass("new_tab", R.string.action_new_tab, R.drawable.ic_round_add, true),
-                MenuItemClass("new_private_tab", R.string.action_incognito, R.drawable.incognito_mode, true),
+                MenuItemClass("new_private_tab", R.string.action_incognito, R.drawable.incognito_mode_new, true),
                 MenuDividerClass(),
                 MenuItemClass("share", R.string.action_share, R.drawable.ic_share_black, true),
                 MenuItemClass("open_in_app", R.string.open_in_app, R.drawable.ic_round_open_in_new, userPreferences.navbar && !activity.isIncognito() && intent.resolveActivity(packageManager) != null && intent.resolveActivity(packageManager).packageName != activity.applicationContext.packageName && !currentUrl.isSpecialUrl()),
@@ -190,7 +190,7 @@ class PopUpClass {
                 MenuItemClass("reading_mode", R.string.reading_mode, R.drawable.ic_action_reading, true),
                 MenuDividerClass(),
                 MenuItemClass("settings", R.string.settings, R.drawable.ic_round_settings, true),
-                MenuItemClass("exit_private", R.string.quit_private, R.drawable.incognito_mode, true)
+                MenuItemClass("exit_private", R.string.quit_private, R.drawable.incognito_mode_new, true)
         )
 
         val finalMenu = if(activity.isIncognito()) incognitoMenu else menu

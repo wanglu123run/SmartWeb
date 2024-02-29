@@ -500,7 +500,7 @@ abstract class BrowserActivity : ThemableBrowserActivity(), BrowserView, UIContr
         } else if (shouldShowTabsInDrawer) {
             tabCountView?.visibility = GONE
             homeImageView?.visibility = VISIBLE
-            homeImageView?.setImageResource(R.drawable.incognito_mode)
+            homeImageView?.setImageResource(R.drawable.incognito_mode_new)
             // Post drawer locking in case the activity is being recreated
             mainHandler.post { drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED, getTabDrawer()) }
         } else {

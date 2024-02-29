@@ -112,7 +112,7 @@ class LightningDialogBuilder @Inject constructor(
         DialogItem(
             title = R.string.dialog_open_incognito_tab,
             isConditionMet = activity is MainActivity,
-            icon = ContextCompat.getDrawable(activity, R.drawable.incognito_mode)
+            icon = ContextCompat.getDrawable(activity, R.drawable.incognito_mode_new)
         ) {
             uiController.handleNewTab(NewTab.INCOGNITO, entry.url)
         },
