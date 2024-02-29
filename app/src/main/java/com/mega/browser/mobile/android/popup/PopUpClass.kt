@@ -53,6 +53,7 @@ import com.mega.browser.mobile.android.utils.isSpecialUrl
 import com.mega.browser.mobile.android.utils.stringContainsItemFromList
 import com.github.ahmadaghazadeh.editor.widget.CodeEditor
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.mega.browser.mobile.android.MainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.net.URL
 import javax.inject.Inject
@@ -134,7 +135,7 @@ class PopUpClass {
         }
 
         popupView.findViewById<ImageButton>(R.id.open_in_app).setOnClickListener {
-            val components = arrayOf(ComponentName(activity, BrowserActivity::class.java))
+            val components = arrayOf(ComponentName(activity, MainActivity::class.java))
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                 activity.startActivity(Intent.createChooser(intent, null).putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS,components))
             else activity.startActivity(intent)
@@ -401,7 +402,7 @@ class PopUpClass {
                     view.context.startActivity(settings)
                 }
                 "exit_private" -> {
-                    view.context.startActivity(Intent(view.context, BrowserActivity::class.java))
+                    view.context.startActivity(Intent(view.context, MainActivity::class.java))
                     activity.finish()
                 }
                 "translate" -> {
@@ -409,7 +410,7 @@ class PopUpClass {
                     currentView?.loadUrl("https://www.translatetheweb.com/?from=&to=$locale&dl=$locale&a=$currentUrl")
                 }
                 "open_in_app" -> {
-                    val components = arrayOf(ComponentName(activity, BrowserActivity::class.java))
+                    val components = arrayOf(ComponentName(activity, MainActivity::class.java))
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                         activity.startActivity(Intent.createChooser(intent, null).putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS,components))
                     else activity.startActivity(intent)
