@@ -226,6 +226,16 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
         </provider>
+
+        <receiver android:name=".download.DownloadRequestBR"
+            android:enabled="true"
+            android:exported="false"
+            >
+            <intent-filter>
+                <action android:name="com.mega.browser.mobile.android.download.request"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

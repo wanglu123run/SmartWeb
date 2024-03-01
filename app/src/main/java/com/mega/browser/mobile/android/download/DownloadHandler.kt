@@ -40,7 +40,9 @@ import com.mega.browser.mobile.android.utils.FileUtils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
+import com.huxq17.download.core.DownloadRequest
 import com.huxq17.download.utils.LogUtil
+import com.mega.browser.mobile.android.IncognitoActivity
 import io.reactivex.Scheduler
 import java.io.File
 import java.io.IOException
@@ -115,6 +117,10 @@ class DownloadHandler @Inject constructor(private val downloadsRepository: Downl
         logger.log(TAG, "DOWNLOAD: Content disposition: $contentDisposition")
         logger.log(TAG, "DOWNLOAD: MimeType: $mimeType")
         logger.log(TAG, "DOWNLOAD: User agent: $userAgent")
+        if (context is IncognitoActivity) {
+            DownloadRequestBR.send(context, manager.downloadDirectory, url, userAgent, contentDisposition, mimeType, contentSize)
+            return
+        }
 
         var location
                 = manager.downloadDirectory
@@ -157,10 +163,11 @@ class DownloadHandler @Inject constructor(private val downloadsRepository: Downl
 
         // Open DownloadActivity
         val intent = Intent(context, DownloadActivity::class.java)
+        intent.putExtra("is_incognito", false)
 
         val rpIntent: PendingIntent? = TaskStackBuilder.create(context).run {
             addNextIntentWithParentStack(intent)
-            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         }
 
         Pump.newRequest(url, "$downloadFolder/$fileName") //Set id,optionally

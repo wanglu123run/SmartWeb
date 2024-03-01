@@ -188,6 +188,7 @@ class PopUpClass {
 //                MenuItemClass("add_to_homepage", R.string.action_add_to_homescreen, R.drawable.ic_round_smartphone, true),
                 MenuDividerClass(),
                 MenuItemClass("bookmarks", R.string.action_bookmarks, R.drawable.ic_action_star, true),
+                MenuItemClass("downloads", R.string.action_downloads, R.drawable.ic_file_download_black, true),
                 MenuItemClass("reading_mode", R.string.reading_mode, R.drawable.ic_action_reading, true),
                 MenuDividerClass(),
                 MenuItemClass("settings", R.string.settings, R.drawable.ic_round_settings, true),
@@ -227,8 +228,14 @@ class PopUpClass {
                 "history" -> view.context.startActivity(Intent(view.context, HistoryActivity::class.java)) // 4 - History
                 "downloads" -> {
                     when(userPreferences.useNewDownloader){
-                        true -> view.context.startActivity(Intent(view.context, DownloadActivity::class.java))
-                        false -> currentView?.loadDownloadsPage()
+                        true -> {
+                            val downloadIntent = Intent(view.context, DownloadActivity::class.java)
+                            downloadIntent.putExtra("is_incognito", activity is IncognitoActivity)
+                            view.context.startActivity(downloadIntent)
+                        }
+                        false -> {
+                            currentView?.loadDownloadsPage()
+                        }
                     }
 
                 } // 5 - Download

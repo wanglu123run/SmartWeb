@@ -30,7 +30,7 @@ android {
     flavorDimensions "default"
     productFlavors {
         channel_A1 {
-            resValue("string", "MESHARE_CHANNEL", "A1")
+            resValue("string", "MEGA_BROWSER_CHANNEL", "A1")
         }
     }
 

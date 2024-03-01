@@ -30,6 +30,7 @@ import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadInfo
 import com.huxq17.download.core.DownloadListener
 import com.huxq17.download.utils.LogUtil
+import com.mega.browser.mobile.android.IncognitoActivity
 import kotlinx.android.synthetic.main.download_item.view.*
 import java.io.File
 import java.util.*
@@ -61,8 +62,12 @@ class DownloadActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     private var downloadAdapter: DownloadAdapter? = null
     private lateinit var downloadInfoList: MutableList<DownloadInfo>
 
+    private var isIncognito = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         this.injector.inject(this)
+
+        isIncognito = intent.getBooleanExtra("is_incognito", false)
 
         val color: Int
         if (mUserPreferences!!.useTheme === AppTheme.LIGHT) {
@@ -84,6 +89,9 @@ class DownloadActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         ButterKnife.bind(this)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
         if (supportActionBar != null) supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val downloadInfoList  = Pump.getAllDownloadList()
@@ -105,6 +113,12 @@ class DownloadActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (isIncognito) {
+            startActivity(Intent(this, IncognitoActivity::class.java))
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()
