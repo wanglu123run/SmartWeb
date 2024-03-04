@@ -27,12 +27,12 @@ class StartFragment : Fragment() {
 
         requireView().findViewById<TextView>(R.id.service_agreement).setOnClickListener {
             //服务条款
-            WebViewActivity.start(requireContext(), "www.baidu.com", null)
+//            WebViewActivity.start(requireContext(), "www.baidu.com", null)
         }
 
         requireView().findViewById<TextView>(R.id.privacy_agreement).setOnClickListener {
             //隐私协议
-            WebViewActivity.start(requireContext(), "www.google.com", null)
+            WebViewActivity.start(requireContext(), "https://sites.google.com/view/browser-privacy-policy-ww", "Privacy Policy")
         }
 
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,7 @@ abstract class ThemableBrowserActivity : AppCompatActivity() {
 
     private var themeId: AppTheme = AppTheme.LIGHT
     private var showTabsInDrawer: Boolean = false
+    private var isBottomBarShow: Boolean = false
     private var shouldRunOnResumeActions = false
 
     /**
@@ -36,7 +38,7 @@ abstract class ThemableBrowserActivity : AppCompatActivity() {
         injector.inject(this)
         themeId = userPreferences.useTheme
         showTabsInDrawer = userPreferences.showTabsInDrawer
-
+        isBottomBarShow = userPreferences.bottomBar
         // set the theme
         setTheme(provideThemeOverride() ?: when (userPreferences.useTheme) {
             AppTheme.LIGHT -> R.style.Theme_LightTheme
@@ -88,7 +90,9 @@ abstract class ThemableBrowserActivity : AppCompatActivity() {
         resetPreferences()
         shouldRunOnResumeActions = true
         val drawerTabs = userPreferences.showTabsInDrawer
-        if (themeId != userPreferences.useTheme || showTabsInDrawer != drawerTabs) {
+        if (themeId != userPreferences.useTheme
+            || showTabsInDrawer != drawerTabs
+            || isBottomBarShow != userPreferences.bottomBar) {
             restart()
         }
     }

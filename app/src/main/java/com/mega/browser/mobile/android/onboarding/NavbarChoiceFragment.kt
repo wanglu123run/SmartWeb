@@ -7,11 +7,13 @@ package com.mega.browser.mobile.android.onboarding
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -65,14 +67,30 @@ class NavbarChoiceFragment : Fragment() {
         val rGroup = getView()?.findViewById(R.id.radioGroup) as RadioGroup
         rGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.defaultNavbar -> userPreferences.bottomBar = false
+                R.id.defaultNavbar -> {
+                    userPreferences.bottomBar = false
+                    userPreferences.navbar = false
+                }
                 R.id.defaultNavbar2nd -> {
                     userPreferences.bottomBar = false
                     userPreferences.navbar = true
                 }
-                R.id.bottomNavbar -> userPreferences.bottomBar = true
+                R.id.bottomNavbar -> {
+                    userPreferences.navbar = false
+                    userPreferences.bottomBar = true
+                }
             }
         }
+        if (!userPreferences.bottomBar) {
+            if (userPreferences.navbar) {
+                rGroup.check(R.id.defaultNavbar2nd)
+            } else {
+                rGroup.check(R.id.defaultNavbar)
+            }
+        } else {
+            rGroup.check(R.id.bottomNavbar)
+        }
+
         val rGroup2 = getView()?.findViewById(R.id.radioGroup2) as RadioGroup
         rGroup2.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
@@ -80,20 +98,26 @@ class NavbarChoiceFragment : Fragment() {
                 R.id.fullTabs -> userPreferences.showTabsInDrawer = false
             }
         }
+        if (userPreferences.showTabsInDrawer) {
+            rGroup2.check(R.id.defaultTabs)
+        } else {
+            rGroup2.check(R.id.fullTabs)
+        }
+
         requireView().findViewById<ImageView>(R.id.top_defaultNavbar).setOnClickListener {
-            rGroup.check(R.id.defaultNavbar)
+            (rGroup.findViewById(R.id.defaultNavbar) as RadioButton).setChecked(true)
         }
         requireView().findViewById<ImageView>(R.id.both_defaultNavbar2nd).setOnClickListener {
-            rGroup.check(R.id.defaultNavbar2nd)
+            (rGroup.findViewById(R.id.defaultNavbar2nd) as RadioButton).setChecked(true)
         }
         requireView().findViewById<ImageView>(R.id.bottom_bottomNavbar).setOnClickListener {
-            rGroup.check(R.id.bottomNavbar)
+            (rGroup.findViewById(R.id.bottomNavbar) as RadioButton).setChecked(true)
         }
         requireView().findViewById<ImageView>(R.id.drawer_defaultTabs).setOnClickListener {
-            rGroup2.check(R.id.defaultTabs)
+            (rGroup2.findViewById(R.id.defaultTabs) as RadioButton).setChecked(true)
         }
         requireView().findViewById<ImageView>(R.id.strip_fullTabs).setOnClickListener {
-            rGroup2.check(R.id.fullTabs)
+            (rGroup2.findViewById(R.id.fullTabs) as RadioButton).setChecked(true)
         }
     }
 

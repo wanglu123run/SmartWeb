@@ -81,7 +81,7 @@ class Onboarding : AppIntro2(){
 //        addSlide(ThemeChoiceFragment.newInstance())
 
 
-        addSlide(NavbarChoiceFragment.newInstance())
+//        addSlide(NavbarChoiceFragment.newInstance())
 
         addSlide(StartFragment.newInstance())
 

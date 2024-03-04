@@ -653,5 +653,6 @@
     <string name="app_desc_new">A free web browser that blocks ads and trackers</string>
 
     <string name="app_agreement_desc">Open the link below and carefully read the terms. Click √ to indicate your agreement to the privacy agreement and privacy policy.</string>
+    <string name="page_style">Page Style</string>
 
 </resources>

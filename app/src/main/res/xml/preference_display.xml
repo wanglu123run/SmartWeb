@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/app_elements">
+
+        <androidx.preference.Preference
+            android:fragment="com.mega.browser.mobile.android.onboarding.NavbarChoiceFragment"
+            android:icon="@drawable/ic_settings_page_style"
+            android:title="@string/page_style"
+            android:singleLineTitle="false"/>
+
         <androidx.preference.Preference
             android:fragment="com.mega.browser.mobile.android.settings.fragment.ThemeSettingsFragment"
             android:icon="@drawable/ic_settings_theme_layers"

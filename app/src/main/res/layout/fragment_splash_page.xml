@@ -60,34 +60,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image"
-        app:layout_constraintBottom_toTopOf="@+id/service_agreement"
+        app:layout_constraintBottom_toTopOf="@+id/privacy_agreement"
         app:layout_constraintVertical_weight="1" />
 
 
     <TextView
-        android:id="@+id/service_agreement"
+        android:id="@+id/privacy_agreement"
         app:layout_constraintTop_toBottomOf="@+id/agreement"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/privacy_agreement"
+        app:layout_constraintEnd_toStartOf="@+id/service_agreement"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:text="@string/terms_of_service"
+        android:text="@string/privacy_policy"
         android:textColor="#0000FF"
         android:textSize="12sp" />
 
 
     <TextView
-        android:id="@+id/privacy_agreement"
-        app:layout_constraintTop_toTopOf="@+id/service_agreement"
-        app:layout_constraintBottom_toBottomOf="@+id/service_agreement"
-        app:layout_constraintStart_toEndOf="@+id/service_agreement"
+        android:id="@+id/service_agreement"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/privacy_agreement"
+        app:layout_constraintBottom_toBottomOf="@+id/privacy_agreement"
+        app:layout_constraintStart_toEndOf="@+id/privacy_agreement"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginBottom="3dp"
-        android:text="@string/privacy_policy"
+        android:text="@string/terms_of_service"
         android:textColor="#0000FF"
         android:textSize="12sp" />
 
