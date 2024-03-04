@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "591358990725",
+    "project_id": "browser-pad",
+    "storage_bucket": "browser-pad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591358990725:android:a5abdf881e25d2a2a1ccec",
+        "android_client_info": {
+          "package_name": "com.mega.browser.mobile.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdHgj1KoytkSgy9seqW60v_C1FvPK8-q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

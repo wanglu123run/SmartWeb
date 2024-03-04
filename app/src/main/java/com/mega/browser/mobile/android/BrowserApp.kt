@@ -1,5 +1,6 @@
 package com.mega.browser.mobile.android
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
 import android.content.Context
@@ -22,6 +23,7 @@ import com.mega.browser.mobile.android.utils.installMultiDex
 import android.os.StrictMode
 import com.mega.browser.mobile.android.BuildConfig
 import com.google.android.material.color.DynamicColors
+import com.mega.browser.mobile.android.track.Channel
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.plugins.RxJavaPlugins
@@ -48,6 +50,7 @@ class BrowserApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        app = this
         if (BuildConfig.DEBUG) {
             StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.Builder()
                     .detectAll()
@@ -58,7 +61,7 @@ class BrowserApp : Application() {
                     .penaltyLog()
                     .build())
         }
-
+        Channel.init(this)
         if (Build.VERSION.SDK_INT >= 28) {
             if (getProcessName() == "$packageName:incognito") {
                 WebView.setDataDirectorySuffix("incognito")
@@ -124,6 +127,9 @@ class BrowserApp : Application() {
 
     companion object {
         private const val TAG = "BrowserApp"
+
+        @SuppressLint("StaticFieldLeak")
+        lateinit var app: BrowserApp
 
         init {
             AppCompatDelegate.setCompatVectorFromResourcesEnabled(Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT)
